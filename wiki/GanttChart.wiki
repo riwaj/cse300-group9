@@ -1,6 +1,5 @@
-
 = Introduction =
 
-Gantt Chart uploaded
+Gantt Chart uploaded in the issues
 
 = Details =

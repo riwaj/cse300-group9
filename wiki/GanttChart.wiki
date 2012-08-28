@@ -1,5 +1,6 @@
 = Introduction =
 
-Gantt Chart uploaded in the issues
+Gantt Chart uploaded in the downloads. The link to the same is :
+http://code.google.com/p/cse300-group9/downloads/list
 
 = Details =

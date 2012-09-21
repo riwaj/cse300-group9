@@ -1,0 +1,112 @@
+body{
+	padding-top:60px;
+	padding-bottom:40px;
+	background:#f9f9f9;
+}
+
+footer p{
+	text-align:center
+}
+
+a.hiddenanchor{
+	display: none;
+} 
+.btn-primary{
+   background: #8dba2c;
+   background: -webkit-gradient(linear, left top, left bottom, from(#a0e028), to(#8dba2c));
+   background: -webkit-linear-gradient(top, #a0e028, #8dba2c);
+   background: -moz-linear-gradient(top, #a0e028, #8dba2c);
+   background: -ms-linear-gradient(top, #a0e028, #8dba2c);
+   background: -o-linear-gradient(top, #a0e028, #8dba2c);
+  
+}
+.btn-primary:active,
+.btn-primary.active {
+	background:#8dba2c;
+	top:1px;
+}
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary.active,
+.btn-primary.disabled,
+.btn-primary[disabled] {
+  background-color: #8dba2c;
+  *background-color: #8dba2c;
+}
+.btn:hover {
+	background-position:0;
+}
+.brand{
+	background:url(../img/logo2.png) no-repeat;
+	text-indent:-999px;
+	width:200px;
+}
+.navbar-inner{
+	  background:#5D5650;
+	  border-bottom:#FCCB12 2px solid;
+}
+.nav-pills > .active > a, .nav-pills > .active > a:hover {
+  background-color:#FCCB12;
+  color:#FFFFFF;
+}
+h1{
+	color:#5D5650;
+	margin:20px;
+	text-align:center;
+}
+select{
+	width:280px;
+}
+
+.oppstriped .table-striped tbody tr:nth-child(odd) td,
+.oppstriped .table-striped tbody tr:nth-child(odd) th {
+  background-color: #fff;
+}
+.tabs-left > .nav-tabs {
+	margin-right:0;
+}
+.tab-content {
+	padding:10px 20px;
+	background:#fff;
+	border:#dddddd 1px solid;
+}
+.tabs-left > .nav-tabs {
+	border-right:none;
+}
+.controls input, .controls textarea{	
+	margin-top: 10px;
+	padding: 10px 5px 10px 10px;	
+	-webkit-appearance: textfield;
+	-webkit-box-sizing: content-box;
+	  -moz-box-sizing : content-box;
+	       box-sizing : content-box;
+	-webkit-border-radius: 3px;
+	   -moz-border-radius: 3px;
+	        border-radius: 3px;
+	-webkit-transition: all 0.2s linear;
+	   -moz-transition: all 0.2s linear;
+	     -o-transition: all 0.2s linear;
+	        transition: all 0.2s linear;
+}
+.controls select{
+	height:36px;
+	width:288px;
+	margin-top:10px;
+}
+.form-horizontal .control-label{
+	line-height:40px;
+	color:#5D5650;
+	font-size:16px;
+}	
+.form-horizontal .btn{
+	font-size:16px;
+	padding:10px 20px;
+	margin-right:10px;
+	margin-left:10px;
+}
+.form-horizontal .form-actions{
+	background:none;
+}
+.nav-tabs > li {
+	width:33%;
+}

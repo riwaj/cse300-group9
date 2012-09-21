@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>IIITD Car Pool</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+	<script language="JavaScript" type="text/javascript">
+function changeVisibility(id2,id1) {
+	    var e=document.form1.userType.value;
+		var f = document.getElementById(id1);
+		var g = document.getElementById(id2);
+	if(e==="Car Owner")
+	{
+          			g.style.display = 'block';
+					f.style.display = 'none';		
+	}
+	if(e==="Passenger")
+	{
+          			f.style.display = 'block';
+					g.style.display = 'none';		
+	}
+}
+</script>
+    <!-- Le styles -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="assets/css/log.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="assets/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">IIITD Car Pool</a>
+          <div class="nav-collapse">
+            <ul class="nav pull-right">
+              <li class="active"><a href="dashboard.html">Home</a></li>
+              <li><a href="profile.html">Profile</a></li>
+                          <li>
+  <input type="text" class="input-medium search-query">
+  <button type="submit" class="btn">Search</button>
+</li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <h1>Create your Profile</h1>
+      
+      <div class="row"><div class="span5 offset3">
+      <form class="form-horizontal" name="form1">
+        <fieldset>
+<h3>Personal Info</h3>
+          <div class="control-group">
+            <label class="control-label" for="name">Name</label>
+            <div class="controls">
+              <input type="text" class="input-append" id="name">
+            </div>
+          </div>
+           <div class="control-group">
+            <label class="control-label" for="phn">Phone Number</label>
+            <div class="controls">
+              <input type="text" class="input-medium" id="phn">
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="userType">User Type</label>
+            <div class="controls">
+              <select id="userType" onchange="changeVisibility('passenger','owner')" class="span2">
+                <option selected="selected" disabled="disabled">Select</option>
+                <option>Car Owner</option>
+                <option>Passenger</option>
+              </select>
+            </div>
+          </div>
+          <div id="passenger" style="display: none;">
+          <div class="control-group">
+            <label class="control-label" for="textarea">Starting From</label>
+            <div class="controls">
+              <input type="text" class="input-large" id="textarea" value="">
+            </div>
+</div>
+
+ <div class="control-group">
+            <label class="control-label" for="textarea">Cost (One way)</label>
+            <div class="controls">
+              <input type="text" class="input-mini" id="textarea" value="">
+            </div>
+</div>
+
+ <div class="control-group">
+            <label class="control-label" for="textarea">Capacity</label>
+            <div class="controls">
+              <input type="text" class="input-mini" id="textarea" value="">
+            </div>
+</div>
+
+          </div>
+          <div id="owner" style="display: none;">
+           <div class="control-group">
+            <label class="control-label" for="textarea">Pick Up Location</label>
+            <div class="controls">
+              <input type="text" class="input-large" id="textarea" value="">
+            </div>
+</div>
+
+
+ 
+ <div class="control-group">
+            <label class="control-label" for="textarea">Willingness to pay</label>
+            <div class="controls">
+              <input type="text" class="input-mini" id="textarea" value="">
+            </div>
+</div>
+
+          </div> 
+          
+<h3>Timings</h3>
+                 <form class="form-inline">    
+          <div class="control-group">
+            <label class="control-label" for="Mtime">Monday : Arrival</label>
+             <div class="controls">
+              <select id="Mtime" class="span1">
+                <option value="7:00am" >7:00am</option>
+					<option value="8:00am" >8:00am</option>
+					<option value="9:00am" >9:00am</option>
+					<option value="10:00am" >10:00am</option>
+					<option value="11:00am" >11:00am</option>
+					<option value="12:00pm" >noon</option>
+					<option value="1:00pm" >1:00pm</option>
+					<option value="2:00pm" >2:00pm</option>
+					<option value="3:00pm" >3:00pm</option>
+					<option value="4:00pm" >4:00pm</option>
+					<option value="5:00pm" >5:00pm</option>
+					<option value="6:00pm" >6:00pm</option>
+					<option value="7:00pm" >7:00pm</option>
+					<option value="8:00pm" >8:00pm</option>
+					<option value="9:00pm" >9:00pm</option>
+			   </select>
+
+              </select>
+              </div>
+             
+            </div>
+            <div class="control-group">
+          
+            <label class="control-label" for="Mtime">Departure</label>
+             <div class="controls">
+              <select id="Mtime" class="span1">
+                <option value="7:00am" >7:00am</option>
+					<option value="8:00am" >8:00am</option>
+					<option value="9:00am" >9:00am</option>
+					<option value="10:00am" >10:00am</option>
+					<option value="11:00am" >11:00am</option>
+					<option value="12:00pm" >noon</option>
+					<option value="1:00pm" >1:00pm</option>
+					<option value="2:00pm" >2:00pm</option>
+					<option value="3:00pm" >3:00pm</option>
+					<option value="4:00pm" >4:00pm</option>
+					<option value="5:00pm" >5:00pm</option>
+					<option value="6:00pm" >6:00pm</option>
+					<option value="7:00pm" >7:00pm</option>
+					<option value="8:00pm" >8:00pm</option>
+					<option value="9:00pm" >9:00pm</option>
+			   </select>
+
+              </select>
+              </div>
+             
+            </div>
+ <div class="control-group">
+          
+            <label class="control-label" for="Mtime">Tuesday : Arrival</label>
+             <div class="controls">
+              <select id="Mtime" class="span1">
+                <option value="7:00am" >7:00am</option>
+					<option value="8:00am" >8:00am</option>
+					<option value="9:00am" >9:00am</option>
+					<option value="10:00am" >10:00am</option>
+					<option value="11:00am" >11:00am</option>
+					<option value="12:00pm" >noon</option>
+					<option value="1:00pm" >1:00pm</option>
+					<option value="2:00pm" >2:00pm</option>
+					<option value="3:00pm" >3:00pm</option>
+					<option value="4:00pm" >4:00pm</option>
+					<option value="5:00pm" >5:00pm</option>
+					<option value="6:00pm" >6:00pm</option>
+					<option value="7:00pm" >7:00pm</option>
+					<option value="8:00pm" >8:00pm</option>
+					<option value="9:00pm" >9:00pm</option>
+			   </select>
+
+              </select>
+          </div>
+             
+            </div>
+            <div class="control-group">
+          
+            <label class="control-label" for="Mtime">Departure</label>
+             <div class="controls">
+              <select id="Mtime" class="span1">
+                <option value="7:00am" >7:00am</option>
+					<option value="8:00am" >8:00am</option>
+					<option value="9:00am" >9:00am</option>
+					<option value="10:00am" >10:00am</option>
+					<option value="11:00am" >11:00am</option>
+					<option value="12:00pm" >noon</option>
+					<option value="1:00pm" >1:00pm</option>
+					<option value="2:00pm" >2:00pm</option>
+					<option value="3:00pm" >3:00pm</option>
+					<option value="4:00pm" >4:00pm</option>
+					<option value="5:00pm" >5:00pm</option>
+					<option value="6:00pm" >6:00pm</option>
+					<option value="7:00pm" >7:00pm</option>
+					<option value="8:00pm" >8:00pm</option>
+					<option value="9:00pm" >9:00pm</option>
+			   </select>
+
+              </select>
+              </div>
+             
+            </div>
+
+ <div class="control-group">
+          
+            <label class="control-label" for="Mtime">Wednesday : Arrival</label>
+             <div class="controls">
+              <select id="Mtime" class="span1">
+                <option value="7:00am" >7:00am</option>
+					<option value="8:00am" >8:00am</option>
+					<option value="9:00am" >9:00am</option>
+					<option value="10:00am" >10:00am</option>
+					<option value="11:00am" >11:00am</option>
+					<option value="12:00pm" >noon</option>
+					<option value="1:00pm" >1:00pm</option>
+					<option value="2:00pm" >2:00pm</option>
+					<option value="3:00pm" >3:00pm</option>
+					<option value="4:00pm" >4:00pm</option>
+					<option value="5:00pm" >5:00pm</option>
+					<option value="6:00pm" >6:00pm</option>
+					<option value="7:00pm" >7:00pm</option>
+					<option value="8:00pm" >8:00pm</option>
+					<option value="9:00pm" >9:00pm</option>
+			   </select>
+
+              </select>
+          </div>
+             
+            </div>
+            <div class="control-group">
+          
+            <label class="control-label" for="Mtime">Departure</label>
+             <div class="controls">
+              <select id="Mtime" class="span1">
+                <option value="7:00am" >7:00am</option>
+					<option value="8:00am" >8:00am</option>
+					<option value="9:00am" >9:00am</option>
+					<option value="10:00am" >10:00am</option>
+					<option value="11:00am" >11:00am</option>
+					<option value="12:00pm" >noon</option>
+					<option value="1:00pm" >1:00pm</option>
+					<option value="2:00pm" >2:00pm</option>
+					<option value="3:00pm" >3:00pm</option>
+					<option value="4:00pm" >4:00pm</option>
+					<option value="5:00pm" >5:00pm</option>
+					<option value="6:00pm" >6:00pm</option>
+					<option value="7:00pm" >7:00pm</option>
+					<option value="8:00pm" >8:00pm</option>
+					<option value="9:00pm" >9:00pm</option>
+			   </select>
+
+              </select>
+              </div>
+             
+            </div>
+
+ <div class="control-group">
+          
+            <label class="control-label" for="Mtime">Thursday : Arrival</label>
+             <div class="controls">
+              <select id="Mtime" class="span1">
+                <option value="7:00am" >7:00am</option>
+					<option value="8:00am" >8:00am</option>
+					<option value="9:00am" >9:00am</option>
+					<option value="10:00am" >10:00am</option>
+					<option value="11:00am" >11:00am</option>
+					<option value="12:00pm" >noon</option>
+					<option value="1:00pm" >1:00pm</option>
+					<option value="2:00pm" >2:00pm</option>
+					<option value="3:00pm" >3:00pm</option>
+					<option value="4:00pm" >4:00pm</option>
+					<option value="5:00pm" >5:00pm</option>
+					<option value="6:00pm" >6:00pm</option>
+					<option value="7:00pm" >7:00pm</option>
+					<option value="8:00pm" >8:00pm</option>
+					<option value="9:00pm" >9:00pm</option>
+			   </select>
+
+              </select>
+          </div>
+             
+            </div>
+            <div class="control-group">
+          
+            <label class="control-label" for="Mtime">Departure</label>
+             <div class="controls">
+              <select id="Mtime" class="span1">
+                <option value="7:00am" >7:00am</option>
+					<option value="8:00am" >8:00am</option>
+					<option value="9:00am" >9:00am</option>
+					<option value="10:00am" >10:00am</option>
+					<option value="11:00am" >11:00am</option>
+					<option value="12:00pm" >noon</option>
+					<option value="1:00pm" >1:00pm</option>
+					<option value="2:00pm" >2:00pm</option>
+					<option value="3:00pm" >3:00pm</option>
+					<option value="4:00pm" >4:00pm</option>
+					<option value="5:00pm" >5:00pm</option>
+					<option value="6:00pm" >6:00pm</option>
+					<option value="7:00pm" >7:00pm</option>
+					<option value="8:00pm" >8:00pm</option>
+					<option value="9:00pm" >9:00pm</option>
+			   </select>
+
+              </select>
+              </div>
+             
+            </div>
+
+ <div class="control-group">
+          
+            <label class="control-label" for="Mtime">Friday : Arrival</label>
+             <div class="controls">
+              <select id="Mtime" class="span1">
+                <option value="7:00am" >7:00am</option>
+					<option value="8:00am" >8:00am</option>
+					<option value="9:00am" >9:00am</option>
+					<option value="10:00am" >10:00am</option>
+					<option value="11:00am" >11:00am</option>
+					<option value="12:00pm" >noon</option>
+					<option value="1:00pm" >1:00pm</option>
+					<option value="2:00pm" >2:00pm</option>
+					<option value="3:00pm" >3:00pm</option>
+					<option value="4:00pm" >4:00pm</option>
+					<option value="5:00pm" >5:00pm</option>
+					<option value="6:00pm" >6:00pm</option>
+					<option value="7:00pm" >7:00pm</option>
+					<option value="8:00pm" >8:00pm</option>
+					<option value="9:00pm" >9:00pm</option>
+			   </select>
+
+              </select>
+          </div>
+             
+            </div>
+            <div class="control-group">
+          
+            <label class="control-label" for="Mtime">Departure</label>
+             <div class="controls">
+              <select id="Mtime" class="span1">
+                <option value="7:00am" >7:00am</option>
+					<option value="8:00am" >8:00am</option>
+					<option value="9:00am" >9:00am</option>
+					<option value="10:00am" >10:00am</option>
+					<option value="11:00am" >11:00am</option>
+					<option value="12:00pm" >noon</option>
+					<option value="1:00pm" >1:00pm</option>
+					<option value="2:00pm" >2:00pm</option>
+					<option value="3:00pm" >3:00pm</option>
+					<option value="4:00pm" >4:00pm</option>
+					<option value="5:00pm" >5:00pm</option>
+					<option value="6:00pm" >6:00pm</option>
+					<option value="7:00pm" >7:00pm</option>
+					<option value="8:00pm" >8:00pm</option>
+					<option value="9:00pm" >9:00pm</option>
+			   </select>
+
+              </select>
+              </div>
+             
+            </div>
+
+
+
+          
+           
+         
+        </form>
+          
+          
+                   
+
+          <div class="form-actions">
+<a href="dashboard.html" class="btn btn-primary">Save changes</a>
+            <button class="btn">Cancel</button>
+          </div>
+        </fieldset>
+      </form>
+      </div>
+      
+      
+      </div>
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+
+  </body>
+</html>

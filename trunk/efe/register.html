@@ -90,13 +90,13 @@ function changeVisibility(id2,id1) {
            <div class="control-group">
             <label class="control-label" for="phn">Phone Number</label>
             <div class="controls">
-              <input type="text" class="input-medium" name="phn" placeholder="eg. 9811098110">
+              <input type="text" class="input-medium" name="phn" placeholder="eg. 9811098110" required>
             </div>
           </div>
           <div class="control-group">
             <label class="control-label" for="userType">User Type</label>
             <div class="controls">
-              <select name="userType" onchange="changeVisibility('passenger','owner')" class="span2" name="userType">
+              <select name="userType" onchange="changeVisibility('passenger','owner')" class="span2" name="userType" required>
                 <option selected="selected" disabled="disabled">Select</option>
                 <option>Car Owner</option>
                 <option>Passenger</option>
@@ -109,7 +109,7 @@ function changeVisibility(id2,id1) {
           <h3>Route Info</h3>
             <label class="control-label" for="textarea">Milestone 1 </label>
             <div class="controls">
-              <input type="text" class="input-large" name="m1" placeholder="eg. Nehru Place Bus Terminal">
+              <input type="text" class="input-large" name="m1" placeholder="eg. Nehru Place Bus Terminal" required>
             </div>
 </div>
 
@@ -149,20 +149,20 @@ function changeVisibility(id2,id1) {
 <div class="control-group">
             <label class="control-label" for="textarea">Model</label>
             <div class="controls">
-              <input type="text" class="input-small" name="cmodel" placeholder="eg. Swift">
+              <input type="text" class="input-small" name="cmodel" placeholder="eg. Swift" required>
             </div>
 </div>
  <div class="control-group">
             <label class="control-label" for="textarea">Cost (One way)</label>
             <div class="controls">
-              <input type="text" class="input-mini" name="cost" placeholder="eg. 120">
+              <input type="text" class="input-mini" name="cost" placeholder="eg. 120" required>
             </div>
 </div>
 
  <div class="control-group">
             <label class="control-label" for="textarea">Capacity</label>
             <div class="controls">
-              <input type="text" class="input-mini" name="cap" placeholder="eg. 5">
+              <input type="text" class="input-mini" name="cap" placeholder="eg. 5" required>
             </div>
 </div>
  <div class="control-group">
@@ -174,7 +174,7 @@ function changeVisibility(id2,id1) {
  <div class="control-group">
             <label class="control-label" for="userType">A/C</label>
             <div class="controls">
-              <select id="ac" class="span1" name="ac">
+              <select id="ac" class="span1" name="ac" required>
                 <option>Yes</option>
                 <option>No</option>
               </select>
@@ -187,7 +187,7 @@ function changeVisibility(id2,id1) {
            <div class="control-group">
             <label class="control-label" for="textarea">Pick Up Location</label>
             <div class="controls">
-              <input type="text" class="input-large" name="ploc" placeholder="eg. R.K. Puram, Sec 3 bus stop">
+              <input type="text" class="input-large" name="ploc" placeholder="eg. R.K. Puram, Sec 3 bus stop" required>
             </div>
 </div>
 

@@ -66,16 +66,26 @@ function changeVisibility(id2,id1) {
 
     <div class="container">
 
+<?php
+$user=$_POST["username"];;
+$pass=$_POST["password"];
+?>
       <h1>Create your Profile</h1>
       
       <div class="row"><div class="span5 offset3">
       <form class="form-horizontal" name="form1" action="insert_se.php" method="post">
         <fieldset>
 <h3>Personal Info</h3>
- <div class="control-group">
-            <label class="control-label" for="name">Email </label>
+ <div class="control-group" >
+         
             <div class="controls">
-              <input type="text" class="input-append" name="email" placeholder="temporary till we get google login">
+              <input type="hidden" class="input-append" name="email" value="<?php echo $user ?>" placeholder="temporary till we get google login">
+            </div>
+          </div>
+          <div class="control-group">
+      
+            <div class="controls">
+              <input type="hidden" class="input-append" name="pass" value="<?php echo $pass ?>" placeholder="temporary till we get google login">
             </div>
           </div>
           <div class="control-group">

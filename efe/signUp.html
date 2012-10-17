@@ -59,31 +59,31 @@
     <div class="span6">
       <section> 
         <!-- hidden anchor to stop jump http://www.css3create.com/Astuce-Empecher-le-scroll-avec-l-utilisation-de-target#wrap4  --> 
-        <a class="hiddenanchor" id="toregister"></a> <a class="hiddenanchor" id="tologin"></a>
         <div id="wrapper">
           <div id="login" class="animate form">
           <div id="buttons">
 </div>
-            <form autocomplete="off">
+            <form autocomplete="off" action="register.php" method="post">
               <p>
-                <label for="username" class="uname" data-icon="u" > Your email </label>
+                <label for="username" class="uname" > Your email </label>
                 <input id="username" name="username" required type="text" placeholder="mymail@iiitd.ac.in"/>
               </p>
               <p>
-                <label for="password" class="youpasswd" data-icon="p"> Your password </label>
+                <label for="password" class="youpasswd"> Your password </label>
                 <input id="password" name="password" required type="password" placeholder="eg. X8df!90EO" />
               </p>
-              <p class="keeplogin">
-                <input type="checkbox" name="loginkeeping" id="loginkeeping" value="loginkeeping" />
-                <label for="loginkeeping">Keep me logged in</label>
+               <p>
+                <label for="password" class="youpasswd"> Confirm your password </label>
+                <input id="password" name="password" required type="password"  />
               </p>
               <p class="login button">
-                <a href="dashboard.html"><input type="button" value="log in" class="btn-primary"/></a>
+                <input type="submit" value="Sign Up !" class="btn-primary"/>
               </p>
-               <p class="login button">
-              Not Yet a Member ? 
-                <a href="signUp.html"><input type="button" value= "Sign Up" class="btn-info"/></a>
+              <p class="login button">
+              Already a Member ? 
+                <a href="index.html"><input type="button" value= "Login" class="btn-info"/></a>
               </p>
+             
             </form>
           </div>
         

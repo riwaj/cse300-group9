@@ -14,11 +14,13 @@ function changeVisibility(id2,id1) {
 		var g = document.getElementById(id2);
 	if(e==="Car Owner")
 	{
+					document.form1.sp.required=true;
           			g.style.display = 'block';
 					f.style.display = 'none';		
 	}
 	if(e==="Passenger")
 	{
+					document.form1.sp.required=false;
           			f.style.display = 'block';
 					g.style.display = 'none';		
 	}
@@ -68,7 +70,7 @@ function changeVisibility(id2,id1) {
 
 <?php
 $user=$_POST["username"];;
-$pass=$_POST["password"];
+$pass=$_POST["pass"];
 ?>
       <h1>Create your Profile</h1>
       
@@ -79,32 +81,32 @@ $pass=$_POST["password"];
  <div class="control-group" >
          
             <div class="controls">
-              <input type="hidden" class="input-append" name="email" value="<?php echo $user ?>" placeholder="temporary till we get google login">
+              <input type="hidden" required class="input-append" name="email" value="<?php echo $user ?>" placeholder="temporary till we get google login">
             </div>
           </div>
           <div class="control-group">
       
             <div class="controls">
-              <input type="hidden" class="input-append" name="pass" value="<?php echo $pass ?>" placeholder="temporary till we get google login">
+              <input type="hidden" required class="input-append" name="pass" value="<?php echo $pass ?>" placeholder="temporary till we get google login">
             </div>
           </div>
           <div class="control-group">
             <label class="control-label" for="name">Name</label>
             <div class="controls">
-              <input type="text" class="input-append" name="name" placeholder="eg. Vinod Chopra" required>
+              <input type="text" required class="input-append" name="name" placeholder="eg. Vinod Chopra"  >
             </div>
           </div>
            <div class="control-group">
             <label class="control-label" for="phn">Phone Number*</label>
             <div class="controls">
-              <input type="tel" class="input-medium" name="phn" placeholder="eg. 9811098110" required>
+              <input type="tel" required class="input-medium" name="phn" placeholder="eg. 9811098110"  >
               <label> *Phone Number is not disclosed to other users.</label>
             </div>
           </div>
           <div class="control-group">
             <label class="control-label" for="userType">User Type</label>
             <div class="controls">
-              <select name="userType" onchange="changeVisibility('passenger','owner')" class="span2" name="userType" required>
+              <select name="userType" onchange="changeVisibility('passenger','owner')" class="span2" name="userType"  >
                 <option selected="selected" disabled="disabled">Select</option>
                 <option>Car Owner</option>
                 <option>Passenger</option>
@@ -117,7 +119,7 @@ $pass=$_POST["password"];
           <h3>Route Info<h5>(You can register more routes anytime after registration is complete)
 </h5></h3>            <label class="control-label" for="textarea">Start Point </label>
             <div class="controls">
-              <input type="text" class="input-large" name="sp" placeholder="eg. Nehru Place Bus Terminal" required>
+              <input type="text" class="input-large" name="sp" placeholder="eg. Nehru Place Bus Terminal"  >
             </div>
 </div>
 
@@ -169,7 +171,7 @@ $pass=$_POST["password"];
 <div class="control-group">
             <label class="control-label" for="textarea">Cost (One way)</label>
             <div class="controls">
-              <input type="text" class="input-mini" name="cost" placeholder="eg. 120" required>
+              <input type="text" class="input-mini" name="cost" placeholder="eg. 120"  >
             </div>
 </div>
 
@@ -177,14 +179,14 @@ $pass=$_POST["password"];
 <div class="control-group">
             <label class="control-label" for="textarea">Model</label>
             <div class="controls">
-              <input type="text" class="input-small" name="cmodel" placeholder="eg. Swift" required>
+              <input type="text" class="input-small" name="cmodel" placeholder="eg. Swift"  >
             </div>
 </div>
 
  <div class="control-group">
             <label class="control-label" for="textarea">Capacity</label>
             <div class="controls">
-              <input type="text" class="input-mini" name="cap" placeholder="eg. 5" required>
+              <input type="text" class="input-mini" name="cap" placeholder="eg. 5"  >
             </div>
 </div>
  <div class="control-group">
@@ -196,7 +198,7 @@ $pass=$_POST["password"];
  <div class="control-group">
             <label class="control-label" for="userType">A/C</label>
             <div class="controls">
-              <select id="ac" class="span1" name="ac" required>
+              <select id="ac" class="span1" name="ac"  >
                 <option>Yes</option>
                 <option>No</option>
               </select>
@@ -209,7 +211,7 @@ $pass=$_POST["password"];
            <div class="control-group">
             <label class="control-label" for="textarea">Pick Up Location</label>
             <div class="controls">
-              <input type="text" class="input-large" name="ploc" placeholder="eg. R.K. Puram, Sec 3 bus stop" required>
+              <input type="text" class="input-large" name="ploc" placeholder="eg. R.K. Puram, Sec 3 bus stop"  >
             </div>
 </div>
 

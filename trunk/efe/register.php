@@ -15,12 +15,23 @@ function changeVisibility(id2,id1) {
 	if(e==="Car Owner")
 	{
 					document.form1.sp.required=true;
+					document.form1.m1.required=true;
+					document.form1.cost.required=true;
+					document.form1.cmodel.required=true;
+					document.form1.cap.required=true;
+					document.form1.plate.required=true;
           			g.style.display = 'block';
 					f.style.display = 'none';		
 	}
 	if(e==="Passenger")
 	{
 					document.form1.sp.required=false;
+					document.form1.m1.required=false;
+					document.form1.cost.required=false;
+					document.form1.cmodel.required=false;
+					document.form1.cap.required=false;
+					document.form1.plate.required=false;
+
           			f.style.display = 'block';
 					g.style.display = 'none';		
 	}
@@ -106,7 +117,7 @@ $pass=$_POST["pass"];
           <div class="control-group">
             <label class="control-label" for="userType">User Type</label>
             <div class="controls">
-              <select name="userType" onchange="changeVisibility('passenger','owner')" class="span2" name="userType"  >
+              <select name="userType" onchange="changeVisibility('owner','passenger')" class="span2" name="userType"  >
                 <option selected="selected" disabled="disabled">Select</option>
                 <option>Car Owner</option>
                 <option>Passenger</option>
@@ -114,7 +125,7 @@ $pass=$_POST["pass"];
             </div>
           </div>
           
-          <div id="passenger" style="display: none;">
+          <div id="owner" style="display: none;">
           <div class="control-group">
           <h3>Route Info<h5>(You can register more routes anytime after registration is complete)
 </h5></h3>            <label class="control-label" for="textarea">Start Point </label>
@@ -207,11 +218,10 @@ $pass=$_POST["pass"];
             
 
           </div>
-          <div id="owner" style="display: none;">
+          <div id="passenger" style="display: none;">
            <div class="control-group">
-            <label class="control-label" for="textarea">Pick Up Location</label>
-            <div class="controls">
-              <input type="text" class="input-large" name="ploc" placeholder="eg. R.K. Puram, Sec 3 bus stop"  >
+                       <div class="controls">
+              <input type="hidden" class="input-large" name="ploc" placeholder="eg. R.K. Puram, Sec 3 bus stop"  >
             </div>
 </div>
 

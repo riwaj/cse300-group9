@@ -1,13 +1,13 @@
 <?php
-$con = mysql_connect("localhost","root","");
+$con = mysql_connect("localhost","root","wirelesslan");
 if (!$con)
   {
   die('Could not connect: ' . mysql_error());
   }
-  mysql_select_db("car_pool", $con);
+  mysql_select_db("carpool", $con);
 
 
-  $sql_passenger="INSERT INTO passenger (eid ,name,phoneNo,pickLocation) VALUES( '$_POST[email]','$_POST[name]','$_POST[phn]','$_POST[ploc]')";
+  $sql_passenger="INSERT INTO passenger (pid,eid ,name,phoneNo) VALUES( NULL,'$_POST[email]','$_POST[name]','$_POST[phn]')";
   $sql_owner ="INSERT INTO owner VALUES('$_POST[email]','$_POST[name]','$_POST[phn]')";
   $sql_route = "INSERT INTO route VALUES(NULL,'$_POST[m1]','$_POST[m2]','$_POST[m3]','$_POST[m4]','$_POST[m5]')";
    $sql_car = "INSERT INTO car VALUES(NULL,'$_POST[cost]','$_POST[cap]','$_POST[cmodel]','$_POST[ac]','$_POST[plate]')";
@@ -23,6 +23,7 @@ $sql_cpool = "INSERT INTO cpool VALUES(NULL,NULL,NULL)";
   {
   die('Error: ' . mysql_error());
   }
+  
  }
  
  
@@ -58,3 +59,4 @@ $sql_cpool = "INSERT INTO cpool VALUES(NULL,NULL,NULL)";
 
 mysql_close($con);
 ?>
+

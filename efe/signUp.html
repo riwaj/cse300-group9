@@ -4,6 +4,24 @@
 <head>
 <meta charset="utf-8">
 <title>IIITD Car Pool</title>
+<script language="JavaScript" type="text/javascript">
+function changeVisibility(id2,id1) {
+	    var e=document.sign.pass.value;
+		var x=document.sign.cpassword.value;
+		var f = document.getElementById(id1);
+		var g = document.getElementById(id2);
+	if(e===x && e!="")
+	{
+          			g.style.display = 'block';
+					f.style.display = 'none';		
+	}
+	else
+	{
+          			f.style.display = 'block';
+					g.style.display = 'none';		
+	}
+}
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
 <meta name="author" content="Web Mutiny">
@@ -63,22 +81,29 @@
           <div id="login" class="animate form">
           <div id="buttons">
 </div>
-            <form autocomplete="off" action="register.php" method="post">
+            <form autocomplete="off" action="register.php" method="post" name="sign">
               <p>
                 <label for="username" class="uname" > Your email </label>
                 <input id="username" name="username" required type="text" placeholder="mymail@iiitd.ac.in"/>
               </p>
               <p>
                 <label for="password" class="youpasswd"> Your password </label>
-                <input id="password" name="password" required type="password" placeholder="eg. X8df!90EO" />
+               <input id="password" name="pass" required type="password" onkeyup="changeVisibility('true','false')"/>
               </p>
                <p>
                 <label for="password" class="youpasswd"> Confirm your password </label>
-                <input id="password" name="password" required type="password"  />
-              </p>
-              <p class="login button">
+                <input id="password" name="cpassword" required type="password" onkeyup="changeVisibility('true','false')"/>
+               <div class="alert alert-error" id="false" style="display:none">
+               Passwords do no match
+				</div>
+                <div class="alert alert-success" id="true" style="display:none">
+                Passwords Match
+                <p class="login button">
                 <input type="submit" value="Sign Up !" class="btn-primary"/>
               </p>
+				</div>
+              </p>
+              
               <p class="login button">
               Already a Member ? 
                 <a href="index.html"><input type="button" value= "Login" class="btn-info"/></a>

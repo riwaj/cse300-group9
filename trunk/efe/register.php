@@ -180,11 +180,13 @@ $pass=$_POST["pass"];
             </div>
 </div>
 <div class="control-group">
-            <label class="control-label" for="textarea">Cost (One way)</label>
+            <label class="control-label" for="textarea">Cost (One way)*</label>
             <div class="controls">
               <input type="text" class="input-mini" name="cost" placeholder="eg. 120"  >
+              *For above mentioned route
             </div>
 </div>
+
 
 <h3>Car Info</h3>
 <div class="control-group">

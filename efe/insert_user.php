@@ -12,8 +12,6 @@ if (!$con)
   $sql_route = "INSERT INTO route VALUES(NULL,'$_POST[m1]','$_POST[m2]','$_POST[m3]','$_POST[m4]','$_POST[m5]','$_POST[sp]','$_POST[cost]')";
    $sql_car = "INSERT INTO car VALUES(NULL,'$_POST[cap]','$_POST[cmodel]','$_POST[ac]','$_POST[plate]')";
 
-$sql_follows = "INSERT INTO follows VALUES(NULL,'$_POST[email]',NULL)";
-$sql_cpool = "INSERT INTO cpool VALUES(NULL,NULL,NULL)";
   
  $type = $_POST['userType'];
 
@@ -59,6 +57,20 @@ $sql_owns = "INSERT INTO owns VALUES(NULL,'$oid[oid]','$cid[cid]')";
   {
  	 die('Error: ' . mysql_error());
   }
+  $sp = mysql_real_escape_string($_POST["sp"]);
+$m1 = mysql_real_escape_string($_POST["m1"]);
+$m3 = mysql_real_escape_string($_POST["m3"]);
+$cost = mysql_real_escape_string($_POST["cost"]);
+//$sql1=mysql_query("SELECT rid FROM route WHERE startpoint='" . $sp . "' and milestone1='" . $m1 . "' and milestone3='" . $m3 . "' and rCost='" . $cost . "' ");
+$sql1=mysql_query("SELECT rid FROM route ORDER BY rid DESC LIMIT 1 ");
+$sql2=mysql_query("SELECT oid FROM owner WHERE eid='" . $email . "'");
+$rid = mysql_fetch_array($sql1);
+$oid = mysql_fetch_array($sql2);
+$sql_follows = "INSERT INTO follows VALUES(NULL,'$oid[oid]','$rid[rid]')";
+ if (!mysql_query($sql_follows,$con))
+  {
+ 	 die('Error: ' . mysql_error());
+  }
   
   
  }
@@ -67,5 +79,7 @@ $sql_owns = "INSERT INTO owns VALUES(NULL,'$oid[oid]','$cid[cid]')";
  
 
 mysql_close($con);
+header("Location: http://localhost/SE/efe/index.html");
+exit;
 ?>
 

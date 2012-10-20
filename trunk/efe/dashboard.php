@@ -95,17 +95,45 @@
           <div id="myTabContent" class="tab-content">
       <table class="table table-striped">
         <thead>
-          <tr>
-            <th>#</th>           
+          <tr>         
             <th>User Name</th>
-            <th> Id </th>
             <th>User Type</th>            
-            <th>Cost Per Person(in Rs.)</th>
-            <th>Starting Point</th>
           </tr>
         </thead>
         <tbody>
+<?php
+$con = mysql_connect("localhost","root","wirelesslan");
+if (!$con)
+  {
+  die('Could not connect: ' . mysql_error());
+  }
 
+mysql_select_db("carpool", $con);
+
+$result = mysql_query("SELECT * FROM passenger");
+
+
+while($row = mysql_fetch_array($result))
+  {
+  echo "<tr>";
+  echo "<td>" . $row['eid'] . "</td>";
+  echo "<td>" . $row['name'] . "</td>";
+  echo "</tr>";
+  }
+  $result = mysql_query("SELECT * FROM owner");
+
+
+while($row = mysql_fetch_array($result))
+  {
+  echo "<tr>";
+  echo "<td>" . $row['eid'] . "</td>";
+  echo "<td>" . $row['name'] . "</td>";
+  echo "</tr>";
+  }
+
+
+mysql_close($con);
+?>
          
         </tbody>
       </table>         

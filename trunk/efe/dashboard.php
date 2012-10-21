@@ -87,6 +87,10 @@
   </div><!-- /.navbar -->
     </div>
     
+    <?php
+	session_start();
+	echo "user ID = ". $_SESSION['userid'];
+	?>
 <div class="container">
       <h1>Find a Match</h1>
       

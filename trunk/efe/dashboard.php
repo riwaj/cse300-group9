@@ -110,7 +110,7 @@ if (!$con)
 
 mysql_select_db("carpool", $con);
 
-$result = mysql_query("SELECT * FROM passenger");
+$result = mysql_query("SELECT * FROM users");
 
 
 while($row = mysql_fetch_array($result))
@@ -120,17 +120,6 @@ while($row = mysql_fetch_array($result))
   echo "<td>" . $row['name'] . "</td>";
   echo "</tr>";
   }
-  $result = mysql_query("SELECT * FROM owner");
-
-
-while($row = mysql_fetch_array($result))
-  {
-  echo "<tr>";
-  echo "<td>" . $row['eid'] . "</td>";
-  echo "<td>" . $row['name'] . "</td>";
-  echo "</tr>";
-  }
-
 
 mysql_close($con);
 ?>

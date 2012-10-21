@@ -7,15 +7,17 @@ if (!$con)
   mysql_select_db("carpool", $con);
 
 
-  $sql_passenger="INSERT INTO passenger (pid,eid ,name,phoneNo) VALUES( NULL,'$_POST[email]','$_POST[name]','$_POST[phn]')";
-  $sql_owner ="INSERT INTO owner VALUES(NULL,'$_POST[email]','$_POST[name]','$_POST[phn]')";
-  $sql_route = "INSERT INTO route VALUES(NULL,'$_POST[m1]','$_POST[m2]','$_POST[m3]','$_POST[m4]','$_POST[m5]','$_POST[sp]','$_POST[cost]')";
+ 
+  $sql_route = "INSERT INTO route VALUES(NULL,'$_POST[sp]','$_POST[m1]','$_POST[m2]','$_POST[m3]','$_POST[m4]','$_POST[m5]','$_POST[cost]')";
    $sql_car = "INSERT INTO car VALUES(NULL,'$_POST[cap]','$_POST[cmodel]','$_POST[ac]','$_POST[plate]')";
 
   
  $type = $_POST['userType'];
 
  if($type == "Passenger"){
+	 
+	 	$hash = md5( rand(0,1000) );
+$sql_passenger="INSERT INTO users VALUES( NULL,'$_POST[name]','$_POST[email]','$_POST[pass]','". mysql_escape_string($hash) ."','$_POST[phn]','passenger',1)";
  
  if (!mysql_query($sql_passenger,$con))
   {
@@ -27,6 +29,8 @@ if (!$con)
  
  if($type == "Car Owner")
  {
+	 	 	$hash = md5( rand(0,1000) );
+$sql_owner="INSERT INTO users VALUES( NULL,'$_POST[name]','$_POST[email]','$_POST[pass]','". mysql_escape_string($hash) ."','$_POST[phn]','owner',1)";
   if (!mysql_query($sql_owner,$con))
   {
 	  die('Error: ' . mysql_error());
@@ -49,24 +53,21 @@ if (!$con)
 $plate = mysql_real_escape_string($_POST["plate"]);
 $email = mysql_real_escape_string($_POST["email"]);
 $sql1=mysql_query("SELECT cid FROM car WHERE numberPlate='" . $plate . "'");
-$sql2=mysql_query("SELECT oid FROM owner WHERE eid='" . $email . "'");
+$sql2=mysql_query("SELECT uid FROM users WHERE eid='" . $email . "'");
 $cid = mysql_fetch_array($sql1);
 $oid = mysql_fetch_array($sql2);
-$sql_owns = "INSERT INTO owns VALUES(NULL,'$oid[oid]','$cid[cid]')";
+$sql_owns = "INSERT INTO owns VALUES(NULL,'$oid[uid]','$cid[cid]')";
  if (!mysql_query($sql_owns,$con))
   {
  	 die('Error: ' . mysql_error());
   }
-  $sp = mysql_real_escape_string($_POST["sp"]);
-$m1 = mysql_real_escape_string($_POST["m1"]);
-$m3 = mysql_real_escape_string($_POST["m3"]);
-$cost = mysql_real_escape_string($_POST["cost"]);
-//$sql1=mysql_query("SELECT rid FROM route WHERE startpoint='" . $sp . "' and milestone1='" . $m1 . "' and milestone3='" . $m3 . "' and rCost='" . $cost . "' ");
+
+
 $sql1=mysql_query("SELECT rid FROM route ORDER BY rid DESC LIMIT 1 ");
-$sql2=mysql_query("SELECT oid FROM owner WHERE eid='" . $email . "'");
+$sql2=mysql_query("SELECT uid FROM users WHERE eid='" . $email . "'");
 $rid = mysql_fetch_array($sql1);
 $oid = mysql_fetch_array($sql2);
-$sql_follows = "INSERT INTO follows VALUES(NULL,'$oid[oid]','$rid[rid]')";
+$sql_follows = "INSERT INTO follows VALUES(NULL,'$oid[uid]','$rid[rid]')";
  if (!mysql_query($sql_follows,$con))
   {
  	 die('Error: ' . mysql_error());

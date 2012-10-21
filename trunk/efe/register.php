@@ -86,7 +86,7 @@ $pass=$_POST["pass"];
       <h1>Create your Profile</h1>
       
       <div class="row"><div class="span5 offset3">
-      <form class="form-horizontal" name="form1" action="insert_se.php" method="post">
+      <form class="form-horizontal" name="form1" action="insert_user.php" method="post">
         <fieldset>
 <h3>Personal Info</h3>
  <div class="control-group" >
@@ -102,15 +102,15 @@ $pass=$_POST["pass"];
             </div>
           </div>
           <div class="control-group">
-            <label class="control-label" for="name">Name</label>
+            <label class="control-label" for="name">Full Name</label>
             <div class="controls">
-              <input type="text" required class="input-append" name="name" placeholder="eg. Vinod Chopra"  >
+              <input type="text" required class="input-append" name="name" placeholder="eg. Vinod Chopra" pattern="^[A-Za-z]{1,20}\s[A-Za-z]{1,20}$"  >
             </div>
           </div>
            <div class="control-group">
             <label class="control-label" for="phn">Phone Number*</label>
             <div class="controls">
-              <input type="tel" required class="input-medium" name="phn" placeholder="eg. 9811098110"  >
+              <input type="tel" required pattern="^[789][0-9]{9}$" class="input-medium" name="phn" placeholder="eg. 9811098110"  >
               <label> *Phone Number is not disclosed to other users.</label>
             </div>
           </div>
@@ -182,7 +182,7 @@ $pass=$_POST["pass"];
 <div class="control-group">
             <label class="control-label" for="textarea">Cost (One way)*</label>
             <div class="controls">
-              <input type="text" class="input-mini" name="cost" placeholder="eg. 120"  >
+              <input type="text" class="input-mini" pattern="^[0-9]{1,3}$" name="cost" placeholder="eg. 120"  >
               *For above mentioned route
             </div>
 </div>
@@ -192,14 +192,14 @@ $pass=$_POST["pass"];
 <div class="control-group">
             <label class="control-label" for="textarea">Model</label>
             <div class="controls">
-              <input type="text" class="input-small" name="cmodel" placeholder="eg. Swift"  >
+              <input type="text" class="input-small"  pattern="^[A-za-z0-9 ]{1,30}$" name="cmodel" placeholder="eg. Swift"  >
             </div>
 </div>
 
  <div class="control-group">
             <label class="control-label" for="textarea">Capacity</label>
             <div class="controls">
-              <input type="text" class="input-mini" name="cap" placeholder="eg. 5"  >
+              <input type="text" class="input-mini" pattern="^[0-9]$" name="cap" placeholder="eg. 5"  >
             </div>
 </div>
  <div class="control-group">

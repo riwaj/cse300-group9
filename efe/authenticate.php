@@ -15,12 +15,19 @@ if (!$con)
 
 mysql_select_db("carpool", $con);
 
-$result = mysql_query("SELECT pass, active FROM users where eid='" . $username . "'");
+$result = mysql_query("SELECT pass, active, uid FROM users where eid='" . $username . "'");
 
 $row = mysql_fetch_array($result);
 if($row['pass']==$password && $row['active']==1 )
 {
+	ob_start();
 	header("Location: http://localhost/SE/efe/dashboard.php");
+	$uid = $row['uid'];
+	session_start();
+$_SESSION['uid']=$uid;
+	echo "user ID = ". $_SESSION['userid'];
+	//session_destroy();
+	ob_end_flush(); 
 exit;
 }
 

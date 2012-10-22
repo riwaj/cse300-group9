@@ -39,10 +39,10 @@
           <a class="brand" href="#">IIITD Car Pool</a>
           <div class="nav-collapse">
             <ul class="nav pull-right">
- <li class="active"><a href="dashboard.html"><i class="icon-home icon-white"></i> Home</a></li>
+ <li class="active"><a href="dashboard.php"><i class="icon-home icon-white"></i> Home</a></li>
               <li><a href="profile.php">Profile</a></li>
 <li><a href="index.php">Logout</a></li>                     
-  <li><a href="contact.html">Contact Us</a></li>
+  <li><a href="contact.php">Contact Us</a></li>
   <li>
   <input type="text" class="input-medium search-query">
   <button type="submit" class="btn">Search</button>

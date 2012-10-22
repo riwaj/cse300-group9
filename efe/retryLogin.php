@@ -72,6 +72,9 @@ if(!session_id() == '')
           <div id="login" class="animate form">
           <div id="buttons">
 </div>
+<div class="alert alert-error">
+Invalid User Name / Password. Please Try Again.
+</div>
             <form autocomplete="off" action="authenticate.php" method="post">
               <p>
                 <label for="username" class="uname"  > Your email </label>

@@ -18,7 +18,11 @@
     <![endif]-->
 
     <!-- Le fav and touch icons -->
- 
+    <link rel="shortcut icon" href="assets/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
   </head>
 
   <body>
@@ -34,103 +38,88 @@
           <a class="brand" href="#">IIITD Car Pool</a>
           <div class="nav-collapse">
             <ul class="nav pull-right">
-              <li><a href="dashboard.html">Home</a></li>
-              <li><a href="about.html">About</a></li>
-              <li class="active"><a href="contact.html">Contact Us</a></li>
-                          <li>
- 
-</li>
+              <li ><a href="dashboard.php">Home</a></li>
+              <li class="active"><a href="profile.php">Profile</a></li>
+                            <li><a href="index.php">Logout</a></li>
+
+  <li><a href="contact.php">Contact Us</a></li>   
             </ul>
           </div><!--/.nav-collapse -->
         </div>
       </div>
     </div>
 
-    <div class="container span4 offset4">
-    <h1>Add A Route</h1>
- <div class="row"><div>
-      <form class="form-horizontal" name="form1" action="insert_se.php" method="post">
+    <div class="container">
+
+      <h1>Ujjwal Gupta's Profile</h1>
+
+<div class="span3 offset4">
+      <div class="row">
+      <div class="btn-group pull-right">
+  <a href="register.php"><button class="btn-primary">Message Me</button></a>
+</div>
+      <div class="row">
+</div>      
+      <form class="form-horizontal">
         <fieldset>
-
-          <div id="passenger">
           <div class="control-group">
-          <h3>Route Info</h3>            <label class="control-label" for="textarea">Start Point </label>
+            <label class="control-label" for="input01">Name</label>
             <div class="controls">
-              <input type="text" class="input-large" name="sp" placeholder="eg. Nehru Place Bus Terminal" required>
+              <label class="control-label" for="input01">Ujjwal Gupta</label> 
             </div>
-</div>
-
-<div class="control-group">
-          
-            <label class="control-label" for="textarea">Milestone 1 </label>
+            </div>
+            <div class="control-group">
+            <label class="control-label" for="input02">Phone Number</label>
             <div class="controls">
-              <input type="text" class="input-large" name="m1" value="">
+              <label class="control-label" for="input02">9999999992</label> 
             </div>
-</div>
-          <div class="control-group">
-          
-            <label class="control-label" for="textarea">Milestone 2 </label>
+            </div>
+            <div class="control-group">
+            <label class="control-label" for="input03">User Type</label>
             <div class="controls">
-              <input type="text" class="input-large" name="m2" value="">
+              <label class="control-label" for="input03">Car Owner</label> 
             </div>
-</div>
-
-          <div class="control-group">
-          
-            <label class="control-label" for="textarea">Milestone 3 </label>
+            </div><div class="control-group">
+            <label class="control-label" for="input04">Start Point</label>
             <div class="controls">
-              <input type="text" class="input-large" name="m3" value="">
+              <label class="control-label" for="input04">Vasant Vihar</label> 
             </div>
-</div>
-
-          <div class="control-group">
-          
-            <label class="control-label" for="textarea">Milestone 4 </label>
+            </div>
+            <div class="control-group">
+            <label class="control-label" for="input05">Price per way</label>
             <div class="controls">
-              <input type="text" class="input-large" name="m4" value="">
+              <label class="control-label" for="input05">Rs 25</label> 
             </div>
-</div>
-
-          <div class="control-group">
-          
-            <label class="control-label" for="textarea">Milestone 5 </label>
-            <div class="controls">
-              <input type="text" class="input-large" name="m5" value="">
             </div>
-</div>
-  <label class="control-label" for="textarea">End Point </label>
-            <div class="controls">
-              <input type="text" class="input-large"  value="IIIT-Delhi, Okhala" disabled>
-            </div>
-</div>
-<div class="control-group">
-            <label class="control-label" for="textarea">Cost (One way)*</label>
-            <div class="controls">
-              <input type="text" class="input-mini" name="cost" placeholder="eg. 120"  >
-              *For above mentioned route
-            </div>
-</div>
+                <ul class="thumbnails">
+  <li class="span4">
+    <div class="thumbnail">
+    <a href="#myModal">
+      <img src="assets/img/map.jpg" alt="">
+      </a>
+      <h3>Route</h3>
+      <p>Click to Enlarge</p>
+    </div>
+  </li>
+  
+</ul>
 
 
 
- 
+            
 
+            
+         
+         
+         
 
-
-
-          </div> 
-          
-
-                 
-          
-                   
-
-          <div class="form-actions">
- <button type="submit" class="btn btn-success">Add Route</button>
-            <button class="btn" ><a href="index.html">Cancel</a></button>
-          </div>
         </fieldset>
       </form>
+      </div>
+      
+  
+      </div>
+      </div>
 
     </div> <!-- /container -->
 

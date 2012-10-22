@@ -61,8 +61,8 @@ function changeVisibility(id2,id1) {
           <div class="nav-collapse">
             <ul class="nav pull-right">
               <li class="active"><a href="#">Home</a></li>
-              <li><a href="about.html">About</a></li>
-              <li><a href="contact.html">Contact Us</a></li>
+              <li><a href="about.php">About</a></li>
+              <li><a href="contact.php">Contact Us</a></li>
              <li>
 
 </li>
@@ -110,7 +110,7 @@ function changeVisibility(id2,id1) {
               
               <p class="login button">
               Already a Member ? 
-                <a href="index.html"><input type="button" value= "Login" class="btn-info"/></a>
+                <a href="index.php"><input type="button" value= "Login" class="btn-info"/></a>
               </p>
              
             </form>

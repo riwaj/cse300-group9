@@ -32,7 +32,7 @@ if($_POST["userType"]=="Passenger")
 //echo (isset($_POST["userType"]))? $_POST["userType"] : 'Variable undefined..';
 if($_POST["userType"]=="Passenger")
 {
-header("Location: http://localhost/dashboard.html");
+header("Location: http://localhost/dashboard.php");
 exit();
 }
 else{

@@ -68,9 +68,9 @@ function changeVisibility(id2,id1) {
           <a class="brand" href="#">IIITD Car Pool</a>
           <div class="nav-collapse">
             <ul class="nav pull-right">
-              <li class="active"><a href="dashboard.html">Home</a></li>
-              <li><a href="profile.html">Profile</a></li>
-             <li><a href="contact.html">Contact Us</a></li>
+              <li class="active"><a href="dashboard.php">Home</a></li>
+              <li><a href="profile.php">Profile</a></li>
+             <li><a href="contact.php">Contact Us</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -242,7 +242,7 @@ $pass=$_POST["pass"];
 
           <div class="form-actions">
  <button type="submit" class="btn btn-success">Submit</button>
-            <button class="btn" ><a href="index.html">Cancel</a></button>
+            <button class="btn" ><a href="index.php">Cancel</a></button>
           </div>
         </fieldset>
       </form>

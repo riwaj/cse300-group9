@@ -30,9 +30,9 @@ if(!session_id() == '')
    session_destroy();
    session_start();
 }
-if(isset($_SESSION['uid']))
+if(isset($_SESSION['userid']))
 {
-	 unset($_SESSION['uid']); 
+	 unset($_SESSION['userid']); 
 }
 $_SESSION['userid']=$uid;
 	echo "user ID = ". $_SESSION['userid'];
@@ -42,7 +42,8 @@ exit;
 
 else
 {
-	echo "invalid";
+	header("Location: http://localhost/SE/efe/retryLogin.php");
+	exit;
 }
 
 mysql_close($con);

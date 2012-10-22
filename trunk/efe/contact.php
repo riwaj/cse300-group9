@@ -38,9 +38,9 @@
           <a class="brand" href="#">IIITD Car Pool</a>
           <div class="nav-collapse">
             <ul class="nav pull-right">
-              <li><a href="dashboard.html">Home</a></li>
-              <li><a href="about.html">About</a></li>
-              <li class="active"><a href="contact.html">Contact Us</a></li>
+              <li><a href="dashboard.php">Home</a></li>
+              <li><a href="about.php">About</a></li>
+              <li class="active"><a href="contact.php">Contact Us</a></li>
                           <li>
  
 </li>

@@ -38,11 +38,11 @@
           <a class="brand" href="#">IIITD Car Pool</a>
           <div class="nav-collapse">
             <ul class="nav pull-right">
-              <li ><a href="dashboard.html">Home</a></li>
-              <li class="active"><a href="profile.html">Profile</a></li>
-                            <li><a href="index.html">Logout</a></li>
+              <li><a href="dashboard.php">Home</a></li>
+              <li class="active"><a href="about.php">About</a></li>
+              <li><a href="contact.php">Contact Us</a></li>
 
-  <li><a href="contact.html">Contact Us</a></li>   
+</li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -51,86 +51,24 @@
 
     <div class="container">
 
-      <h1>Ujjwal Gupta's Profile</h1>
+<div class="span7 offset2">
+    <h1> About us </h1>
+    <p>
+Most of the IIITians are Day Scholars and a major percentage live far away thereby are forced to use public transport(fuel prices are soaring for a person to use car daily for long distances). This motivated us to simplify the experience of travelling by building a platform where people can easily pool a car to save time, money and experience the fun.</p>
 
-<div class="span3 offset4">
-      <div class="row">
-      <div class="btn-group pull-right">
-  <a href="register.html"><button class="btn-primary">Message Me</button></a>
+<p>Prototype</p>
+
+<p>Our software allows only IIITD students to login via their accounts(IIITD accounts). The person is given the option to choose from whether he is a car owner and wants to share his car or if he wants to share another person's car and pay him in return. After filling all the details the person is asked to verify his route on the Google Maps.</p>
+
+<p>The software will search for a best match on the basis of closest route of a car owner and give the user best 5 options. User will choose an option and a notification will be sent to the car owner, whenever irs confirmed from his side the person can negotiate for other details like mode of payment, exact pickup points etc resulting into a car pool.</p>
 </div>
-      <div class="row">
-</div>      
-      <form class="form-horizontal">
-        <fieldset>
-          <div class="control-group">
-            <label class="control-label" for="input01">Name</label>
-            <div class="controls">
-              <label class="control-label" for="input01">Ujjwal Gupta</label> 
-            </div>
-            </div>
-            <div class="control-group">
-            <label class="control-label" for="input02">Phone Number</label>
-            <div class="controls">
-              <label class="control-label" for="input02">9999999992</label> 
-            </div>
-            </div>
-            <div class="control-group">
-            <label class="control-label" for="input03">User Type</label>
-            <div class="controls">
-              <label class="control-label" for="input03">Car Owner</label> 
-            </div>
-            </div><div class="control-group">
-            <label class="control-label" for="input04">Start Point</label>
-            <div class="controls">
-              <label class="control-label" for="input04">Vasant Vihar</label> 
-            </div>
-            </div>
-            <div class="control-group">
-            <label class="control-label" for="input05">Price per way</label>
-            <div class="controls">
-              <label class="control-label" for="input05">Rs 25</label> 
-            </div>
-            </div>
-                <ul class="thumbnails">
-  <li class="span4">
-    <div class="thumbnail">
-    <a href="#myModal">
-      <img src="assets/img/map.jpg" alt="">
-      </a>
-      <h3>Route</h3>
-      <p>Click to Enlarge</p>
-    </div>
-  </li>
-  
-</ul>
-
-
-
-            
-
-            
-         
-         
-         
-
-<!--          <div class="form-actions">
-<a href="purchases.html">            <button type="submit" class="btn btn-primary">Save changes</button></a>
-            <button class="btn">Cancel</button>
-          </div> -->
-        </fieldset>
-      </form>
-      </div>
       
-  
-      </div>
-      </div>
-
     </div> <!-- /container -->
 
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-<script src="assets/js/jquery.js"></script> 
+ <script src="assets/js/jquery.js"></script> 
 <script src="assets/js/bootstrap-transition.js"></script> 
 <script src="assets/js/bootstrap-alert.js"></script> 
 <script src="assets/js/bootstrap-modal.js"></script> 
@@ -143,7 +81,6 @@
 <script src="assets/js/bootstrap-collapse.js"></script> 
 <script src="assets/js/bootstrap-carousel.js"></script> 
 <script src="assets/js/bootstrap-typeahead.js"></script>
- 
 
   </body>
 </html>

@@ -26,7 +26,13 @@
   </head>
 
   <body>
-
+<?php
+session_start();
+if(!isset($_SESSION['userid']))
+{
+	 echo "login MOTHERFUCKER !"; 
+}
+?>
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
@@ -38,10 +44,10 @@
           <a class="brand" href="#">IIITD Car Pool</a>
           <div class="nav-collapse">
             <ul class="nav pull-right">
-              <li ><a href="dashboard.html">Home</a></li>
-              <li class="active"><a href="profile.html">Profile</a></li>
+              <li ><a href="dashboard.php">Home</a></li>
+              <li class="active"><a href="profile.php">Profile</a></li>
                            <li><a href="index.php">Logout</a></li>   
-                  <li><a href="contact.html">Contact Us</a></li>       
+                  <li><a href="contact.php">Contact Us</a></li>       
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -55,12 +61,12 @@
 <div class="span3 offset4">
       <div class="row">
       <div class="btn-group pull-right">
-  <a href="register.html"><button class="btn">Edit</button></a>
+  <a href="register.php"><button class="btn">Edit</button></a>
 </div>
       <div class="row">
 </div>      
 <?php
-session_start();
+
 $uid=$_SESSION['userid'];
 $con = mysql_connect("localhost","root","wirelesslan");
 if (!$con)
@@ -106,7 +112,7 @@ mysql_close($con);
          
 
 <!--          <div class="form-actions">
-<a href="purchases.html">            <button type="submit" class="btn btn-primary">Save changes</button></a>
+<a href="purchases.php">            <button type="submit" class="btn btn-primary">Save changes</button></a>
             <button class="btn">Cancel</button>
           </div> -->
         </fieldset>

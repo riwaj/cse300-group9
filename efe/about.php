@@ -38,7 +38,18 @@
           <a class="brand" href="#">IIITD Car Pool</a>
           <div class="nav-collapse">
             <ul class="nav pull-right">
-              <li><a href="dashboard.php">Home</a></li>
+            <?php
+session_start();
+if(!isset($_SESSION['userid']))
+{
+	 echo "<li><a href='index.php'>Home</a></li>";
+}
+else
+{
+	echo "<li><a href='dashboard.php'>Home</a></li>";
+}
+?>
+              
               <li class="active"><a href="about.php">About</a></li>
               <li><a href="contact.php">Contact Us</a></li>
 

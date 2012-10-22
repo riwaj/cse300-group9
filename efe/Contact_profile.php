@@ -27,6 +27,8 @@
 
   <body>
 
+<?php $pid =$_GET["uid"]; ?>
+
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
@@ -48,10 +50,38 @@
         </div>
       </div>
     </div>
+      <?php
+	  session_start();
+if(!isset($_SESSION['userid']))
+{
+	 header("Location: http://localhost/SE/efe/unauthrised.php");
+}
+else{
+	$uid=$_SESSION['userid'];
+}
+$con = mysql_connect("localhost","root","wirelesslan");
+if (!$con)
+  {
+  die('Could not connect: ' . mysql_error());
+  }
 
+mysql_select_db("carpool", $con);
+
+$result = mysql_query("SELECT * FROM users where uid='" . $pid. "'");
+
+
+$row = mysql_fetch_array($result);
+ 
+$name=$row['name'];
+$type=$row['userType'];
+$eid=$row['eid'];
+$phn=$row['phone'];
+mysql_close($con);
+?>
     <div class="container">
 
-      <h1>Ujjwal Gupta's Profile</h1>
+     <?php echo "<h3 align='center'>".$name."'s Profile</h3>";
+	 ?>
 
 <div class="span3 offset4">
       <div class="row">
@@ -60,61 +90,35 @@
 </div>
       <div class="row">
 </div>      
-      <form class="form-horizontal">
-        <fieldset>
-          <div class="control-group">
-            <label class="control-label" for="input01">Name</label>
-            <div class="controls">
-              <label class="control-label" for="input01">Ujjwal Gupta</label> 
-            </div>
-            </div>
-            <div class="control-group">
-            <label class="control-label" for="input02">Phone Number</label>
-            <div class="controls">
-              <label class="control-label" for="input02">9999999992</label> 
-            </div>
-            </div>
-            <div class="control-group">
-            <label class="control-label" for="input03">User Type</label>
-            <div class="controls">
-              <label class="control-label" for="input03">Car Owner</label> 
-            </div>
-            </div><div class="control-group">
-            <label class="control-label" for="input04">Start Point</label>
-            <div class="controls">
-              <label class="control-label" for="input04">Vasant Vihar</label> 
-            </div>
-            </div>
-            <div class="control-group">
-            <label class="control-label" for="input05">Price per way</label>
-            <div class="controls">
-              <label class="control-label" for="input05">Rs 25</label> 
-            </div>
-            </div>
-                <ul class="thumbnails">
-  <li class="span4">
-    <div class="thumbnail">
-    <a href="#myModal">
-      <img src="assets/img/map.jpg" alt="">
+
+<div class="accordion" id="accordion2">
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+        Personal Info
       </a>
-      <h3>Route</h3>
-      <p>Click to Enlarge</p>
     </div>
-  </li>
-  
-</ul>
-
-
-
-            
-
-            
-         
-         
-         
-
-        </fieldset>
-      </form>
+    <div id="collapseOne" class="accordion-body collapse in">
+      <div class="accordion-inner">
+      <h4>  Name : <?php echo $name?><br>
+        Phone Number : <?php echo $phn?><br>
+        User Type : <?php echo $type?><br></h4>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+        Route Info
+      </a>
+    </div>
+    <div id="collapseTwo" class="accordion-body collapse">
+      <div class="accordion-inner">
+        Anim pariatur cliche...
+      </div>
+    </div>
+  </div>
+</div>
       </div>
       
   

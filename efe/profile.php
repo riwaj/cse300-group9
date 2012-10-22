@@ -30,7 +30,7 @@
 session_start();
 if(!isset($_SESSION['userid']))
 {
-	 echo "login MOTHERFUCKER !"; 
+	 header("Location: http://localhost/SE/efe/unauthrised.php");
 }
 ?>
     <div class="navbar navbar-fixed-top">
@@ -58,7 +58,7 @@ if(!isset($_SESSION['userid']))
 
       <h1>Your Profile</h1>
 
-<div class="span3 offset4">
+<div class="span4 offset4">
       <div class="row">
       <div class="btn-group pull-right">
   <a href="register.php"><button class="btn">Edit</button></a>
@@ -87,36 +87,34 @@ $eid=$row['eid'];
 $phn=$row['phone'];
 mysql_close($con);
 ?>
-      <form class="form-horizontal">
-        <fieldset>
-          <div class="control-group">
-            <label class="control-label" for="input01">Name</label>
-            <div class="controls">
-              <label class="control-label" for="input01"><?php echo $name?></label> 
-            </div>
-            </div>
-            <div class="control-group">
-            <label class="control-label" for="input02">Phone Number</label>
-            <div class="controls">
-              <label class="control-label" for="input02"><?php echo $phn?></label> 
-            </div>
-            </div>
-            <div class="control-group">
-            <label class="control-label" for="input03">User Type</label>
-            <div class="controls">
-              <label class="control-label" for="input03"><?php echo $type?></label> 
-            </div>
-            </div>
-           
-         
-         
-
-<!--          <div class="form-actions">
-<a href="purchases.php">            <button type="submit" class="btn btn-primary">Save changes</button></a>
-            <button class="btn">Cancel</button>
-          </div> -->
-        </fieldset>
-      </form>
+<div class="accordion" id="accordion2">
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+        Personal Info
+      </a>
+    </div>
+    <div id="collapseOne" class="accordion-body collapse in">
+      <div class="accordion-inner">
+      <h4>  Name : <?php echo $name?><br>
+        Phone Number : <?php echo $phn?><br>
+        User Type : <?php echo $type?><br></h4>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+        Route Info
+      </a>
+    </div>
+    <div id="collapseTwo" class="accordion-body collapse">
+      <div class="accordion-inner">
+        Anim pariatur cliche...
+      </div>
+    </div>
+  </div>
+</div>
       </div>
       
       

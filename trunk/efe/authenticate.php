@@ -24,9 +24,18 @@ if($row['pass']==$password && $row['active']==1 )
 	header("Location: http://localhost/SE/efe/dashboard.php");
 	$uid = $row['uid'];
 	session_start();
-$_SESSION['uid']=$uid;
+if(!session_id() == '')
+ {
+	session_unset();
+   session_destroy();
+   session_start();
+}
+if(isset($_SESSION['uid']))
+{
+	 unset($_SESSION['uid']); 
+}
+$_SESSION['userid']=$uid;
 	echo "user ID = ". $_SESSION['userid'];
-	//session_destroy();
 	ob_end_flush(); 
 exit;
 }

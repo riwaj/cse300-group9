@@ -30,7 +30,11 @@
 <body>
 <?php
 session_start();
- session_destroy(); 
+if(!session_id() == '')
+ {
+	session_unset();
+   session_destroy();
+}
 ?>
 <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">

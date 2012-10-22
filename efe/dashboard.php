@@ -40,8 +40,8 @@
           <div class="nav-collapse">
             <ul class="nav pull-right">
  <li class="active"><a href="dashboard.html"><i class="icon-home icon-white"></i> Home</a></li>
-              <li><a href="profile.html">Profile</a></li>
-<li><a href="index.html">Logout</a></li>                     
+              <li><a href="profile.php">Profile</a></li>
+<li><a href="index.php">Logout</a></li>                     
   <li><a href="contact.html">Contact Us</a></li>
   <li>
   <input type="text" class="input-medium search-query">
@@ -89,7 +89,7 @@
     
     <?php
 	session_start();
-	echo "user ID = ". $_SESSION['userid'];
+	$uid=$_SESSION['userid'];
 	?>
 <div class="container">
       <h1>Find a Match</h1>
@@ -114,14 +114,14 @@ if (!$con)
 
 mysql_select_db("carpool", $con);
 
-$result = mysql_query("SELECT * FROM users");
+$result = mysql_query("SELECT * FROM users where uid!='" . $uid . "'");
 
 
 while($row = mysql_fetch_array($result))
   {
   echo "<tr>";
-  echo "<td>" . $row['eid'] . "</td>";
   echo "<td>" . $row['name'] . "</td>";
+  echo "<td>" . $row['userType'] . "</td>";
   echo "</tr>";
   }
 

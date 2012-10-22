@@ -40,7 +40,7 @@
             <ul class="nav pull-right">
               <li ><a href="dashboard.html">Home</a></li>
               <li class="active"><a href="profile.html">Profile</a></li>
-                            <li><a href="index.html">Logout</a></li>
+                           <li><a href="index.php">Logout</a></li>   
                   <li><a href="contact.html">Contact Us</a></li>       
             </ul>
           </div><!--/.nav-collapse -->
@@ -59,38 +59,49 @@
 </div>
       <div class="row">
 </div>      
+<?php
+session_start();
+$uid=$_SESSION['userid'];
+$con = mysql_connect("localhost","root","wirelesslan");
+if (!$con)
+  {
+  die('Could not connect: ' . mysql_error());
+  }
+
+mysql_select_db("carpool", $con);
+
+$result = mysql_query("SELECT * FROM users where uid='" . $uid . "'");
+
+
+$row = mysql_fetch_array($result);
+ 
+$name=$row['name'];
+$type=$row['userType'];
+$eid=$row['eid'];
+$phn=$row['phone'];
+mysql_close($con);
+?>
       <form class="form-horizontal">
         <fieldset>
           <div class="control-group">
             <label class="control-label" for="input01">Name</label>
             <div class="controls">
-              <label class="control-label" for="input01">Shubhansh Agrawal</label> 
+              <label class="control-label" for="input01"><?php echo $name?></label> 
             </div>
             </div>
             <div class="control-group">
             <label class="control-label" for="input02">Phone Number</label>
             <div class="controls">
-              <label class="control-label" for="input02">9876543210</label> 
+              <label class="control-label" for="input02"><?php echo $phn?></label> 
             </div>
             </div>
             <div class="control-group">
             <label class="control-label" for="input03">User Type</label>
             <div class="controls">
-              <label class="control-label" for="input03">Passenger</label> 
-            </div>
-            </div><div class="control-group">
-            <label class="control-label" for="input04">Pick up location</label>
-            <div class="controls">
-              <label class="control-label" for="input04">East of Kailash</label> 
+              <label class="control-label" for="input03"><?php echo $type?></label> 
             </div>
             </div>
-            <div class="control-group">
-            <label class="control-label" for="input05">Budget for one way</label>
-            <div class="controls">
-              <label class="control-label" for="input05">Rs 30</label> 
-            </div>
-            </div>
-         
+           
          
          
 

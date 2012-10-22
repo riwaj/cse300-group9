@@ -4,32 +4,6 @@
 <head>
 <meta charset="utf-8">
 <title>IIITD Car Pool</title>
-
-<script type='text/javascript' src="assets/js/jquery.pwdstr-1.0.source.js"></script>
-<script language="javascript">
-    $(document).ready(function(){
-        $("#username").focus();
-        $("#password").pwdstr("#info");
-    });
-</script>
-<script language="JavaScript" type="text/javascript">
-function changeVisibility(id2,id1) {
-	    var e=document.sign.pass.value;
-		var x=document.sign.cpassword.value;
-		var f = document.getElementById(id1);
-		var g = document.getElementById(id2);
-	if(e===x && e!="")
-	{
-          			g.style.display = 'block';
-					f.style.display = 'none';		
-	}
-	else
-	{
-          			f.style.display = 'block';
-					g.style.display = 'none';		
-	}
-}
-</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
 <meta name="author" content="Web Mutiny">
@@ -54,6 +28,14 @@ function changeVisibility(id2,id1) {
 </head>
 
 <body>
+<?php
+session_start();
+if(!session_id() == '')
+ {
+	session_unset();
+   session_destroy();
+}
+?>
 <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
@@ -85,37 +67,37 @@ function changeVisibility(id2,id1) {
     <div class="span6">
       <section> 
         <!-- hidden anchor to stop jump http://www.css3create.com/Astuce-Empecher-le-scroll-avec-l-utilisation-de-target#wrap4  --> 
+        <a class="hiddenanchor" id="toregister"></a> <a class="hiddenanchor" id="tologin"></a>
         <div id="wrapper">
           <div id="login" class="animate form">
           <div id="buttons">
 </div>
-            <form autocomplete="off" action="register.php" method="post" name="sign">
+<div class="alert alert-error">
+Unauthorized Access. Please Login to Continue.
+</div>
+            <form autocomplete="off" action="authenticate.php" method="post">
               <p>
-                <label for="username" class="uname" > Your email </label>
-                <input id="username" name="username" pattern="^[A-Za-z]{1,20}[0-9]{0,5}@iiitd\.ac\.in$" required type="text" placeholder="mymail@iiitd.ac.in"/>
+                <label for="username" class="uname"  > Your email </label>
+                
+                <input id="username" autocomplete="on" pattern="^[A-Za-z]{1,20}[0-9]{0,5}@iiitd\.ac\.in$" name="username" required type="text" placeholder="mymail@iiitd.ac.in"/>
               </p>
               <p>
-                <label for="password" class="youpasswd"> Your password </label>
-               <input id="password" name="pass" required type="password" onkeyup="changeVisibility('true','false')"/>
-               Forceable in <span id="info">less than one second</span>
+                <label for="password" class="youpasswd" > Your password </label>
+                <input id="password" name="password" required type="password" placeholder="eg. X8df!90EO" />
               </p>
-               <p>
-                <label for="password" class="youpasswd"> Confirm your password </label>
-                <input id="password" name="cpassword" required type="password" onkeyup="changeVisibility('true','false')"/>
-               <div class="alert alert-error" id="false" style="display:none">
-               Passwords do no match
-				</div>
-                <div class="alert alert-success" id="true" style="display:none">
-                Passwords Match
-                <p class="login button">
-                <input type="submit" value="Sign Up !" class="btn-primary"/>
+              <p class="keeplogin">
+                <input type="checkbox" name="loginkeeping" id="loginkeeping" value="loginkeeping" />
+                <label for="loginkeeping">Keep me logged in</label>
               </p>
-				</div>
+                 <p class="login button">
+                <input type="submit" value="Log in !" class="btn-primary"/>
+              </p>
+				
               </p>
               
               <p class="login button">
-              Already a Member ? 
-                <a href="index.php"><input type="button" value= "Login" class="btn-info"/></a>
+              Not a Member yet ? 
+                <a href="signUp.php"><input type="button" value= "Sign Up" class="btn-info"/></a>
               </p>
              
             </form>
@@ -143,7 +125,6 @@ function changeVisibility(id2,id1) {
 <script src="assets/js/bootstrap-tooltip.js"></script> 
 <script src="assets/js/bootstrap-popover.js"></script> 
 <script src="assets/js/bootstrap-button.js"></script> 
-<script src="assets/js/jquery.pwdstr-1.0.source.js"></script> 
 <script src="assets/js/bootstrap-collapse.js"></script> 
 <script src="assets/js/bootstrap-carousel.js"></script> 
 <script src="assets/js/bootstrap-typeahead.js"></script>

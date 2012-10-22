@@ -43,15 +43,16 @@ session_start();
 if(!isset($_SESSION['userid']))
 {
 	 echo "<li><a href='index.php'>Home</a></li>";
+	 	echo "<li class='active'><a href='about.php'>About</a></li>";
+      echo   "<li><a href='contact.php'>Contact Us</a></li>";
 }
 else
 {
 	echo "<li><a href='dashboard.php'>Home</a></li>";
+	echo "<li class='active'><a href='about.php'>About</a></li>";
+      echo   "<li><a href='contact.php'>Contact Us</a></li>";
 }
 ?>
-              
-              <li class="active"><a href="about.php">About</a></li>
-              <li><a href="contact.php">Contact Us</a></li>
 
 </li>
             </ul>

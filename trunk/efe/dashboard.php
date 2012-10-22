@@ -3,6 +3,14 @@
   <head>
     <meta charset="utf-8">
     <title>IIITD Car Poor</title> 
+    <script type="text/javascript">
+
+function getdata(_row){
+    var _temp=document.getElementById("s"+_row).innerHTML;
+	window.location.href="http://localhost/SE/efe/Contact_profile.php?uid="+_temp;
+  
+}
+</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -88,8 +96,15 @@
     </div>
     
     <?php
-	session_start();
+	
+session_start();
+if(!isset($_SESSION['userid']))
+{
+	 header("Location: http://localhost/SE/efe/unauthrised.php");
+}
+else{
 	$uid=$_SESSION['userid'];
+}
 	?>
 <div class="container">
       <h1>Find a Match</h1>
@@ -99,7 +114,8 @@
           <div id="myTabContent" class="tab-content">
       <table class="table table-striped">
         <thead>
-          <tr>         
+          <tr>     
+          	<th>User ID</th>    
             <th>User Name</th>
             <th>User Type</th>            
           </tr>
@@ -115,14 +131,16 @@ if (!$con)
 mysql_select_db("carpool", $con);
 
 $result = mysql_query("SELECT * FROM users where uid!='" . $uid . "'");
-
+$cnt=0;
 
 while($row = mysql_fetch_array($result))
   {
-  echo "<tr>";
+  echo "<tr id='r".$cnt."' onClick='getdata(".$cnt.")'>";
+  echo "<td id='s".$cnt."'>" . $row['uid'] . "</td>";
   echo "<td>" . $row['name'] . "</td>";
   echo "<td>" . $row['userType'] . "</td>";
   echo "</tr>";
+  $cnt=$cnt+1;
   }
 
 mysql_close($con);

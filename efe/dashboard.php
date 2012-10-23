@@ -72,20 +72,20 @@ function getdata(_row){
           <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">Filters<b class="caret"></b></a>
             <ul class="dropdown-menu">
-              <li class="active"><a href="#alphabetical">Passenger</a></li>
-              <li class=""><a href="#system1-value">Car Owner</a></li>
-              <li class=""><a href="#system2-value">System2 Value</a></li>
-              <li class=""><a href="#user-value">User Value</a></li>
-              <li class=""><a href="#selected">Selected</a></li>
+            <li class=""><a href="http://localhost/SE/efe/dashboard.php">All</a></li>
+              <li class=""><a href="http://localhost/SE/efe/dashboard.php?f=p">Passenger</a></li>
+              <li class=""><a href="http://localhost/SE/efe/dashboard.php?f=o">Car Owner</a></li>
+              <li class=""><a href="">AC Car</a></li>
+              <li class=""><a href="">Non-AC Car</a></li>
             </ul>
           </li>
           <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">Sort By<b class="caret"></b></a>
             <ul class="dropdown-menu">
-              <li class="active"><a href="#alphabetical">Cost</a></li>
-              <li class=""><a href="#system1-value">Capacity</a></li>
-              <li class=""><a href="#system2-value">System2 Value</a></li>
-              <li class=""><a href="#user-value">User Value</a></li>
+              <li class="active"><a href="#alphabetical">User ID</a></li>
+              <li class=""><a href="#system1-value">User Name</a></li>
+              <li class=""><a href="#system2-value">Capacity</a></li>
+              <li class=""><a href="#user-value">Route Cost</a></li>
               <li class=""><a href="#selected">Selected</a></li>
             </ul>
           </li>
@@ -114,10 +114,12 @@ else{
           <div id="myTabContent" class="tab-content">
       <table class="table table-striped">
         <thead>
-          <tr>     
-          	<th>User ID</th>    
+          <tr>        
+          	<th style="display:none">uid</th> 
             <th>User Name</th>
-            <th>User Type</th>            
+            <th>User Type</th>
+            <th>Car Model</th>
+            <th>Starting Point</th>        
           </tr>
         </thead>
         <tbody>
@@ -129,16 +131,33 @@ if (!$con)
   }
 
 mysql_select_db("carpool", $con);
-
-$result = mysql_query("SELECT * FROM users where uid!='" . $uid . "'");
+if(!isset($_GET["f"]))
+{
+	$result = mysql_query("select users.uid, users.name, users.userType, COALESCE(car.modelName,'N/A')as modelName, COALESCE(route.startpoint,'N/A') as startpoint from users left join ((car join owns) join (route join follows))
+on users.uid=owns.oid and car.cid=owns.cid and users.uid=follows.oid and route.rid=follows.rid where users.uid!=".$uid);
+}
+else
+{
+	$filter=$_GET["f"];
+	if($filter=="p")
+	{
+		$result = mysql_query("SELECT * FROM users where uid!='" . $uid . "' and userType='Passenger'");
+	}
+	else if($filter=="o")
+	{
+		$result = mysql_query("SELECT * FROM users where uid!='" . $uid . "' and userType='Car Owner'");
+	}
+}
 $cnt=0;
 
 while($row = mysql_fetch_array($result))
   {
-  echo "<tr id='r".$cnt."' onClick='getdata(".$cnt.")'>";
-  echo "<td id='s".$cnt."'>" . $row['uid'] . "</td>";
-  echo "<td>" . $row['name'] . "</td>";
+  echo "<tr id='r".$cnt."' onClick='getdata(".$cnt.")' style='cursor: pointer'>";
+  echo "<td style='display:none' id='s".$cnt."'>" . $row['uid'] . "</td>";
+ echo "<td>" . $row['name'] . "</td>";
   echo "<td>" . $row['userType'] . "</td>";
+  echo "<td>" . $row['modelName'] . "</td>";
+  echo "<td>" . $row['startpoint'] . "</td>";
   echo "</tr>";
   $cnt=$cnt+1;
   }

@@ -127,8 +127,8 @@ $pass=$_POST["pass"];
           
           <div id="owner" style="display: none;">
           <div class="control-group">
-          <h3>Route Info<h5>(You can register more routes anytime after registration is complete)
-</h5></h3>            <label class="control-label" for="textarea">Start Point </label>
+          <h3>Route Info<h5>(You can register more routes anytime after registration is complete)<br>
+</h5><h5>Enter Milestones in order of occurance</h5></h3>            <label class="control-label" for="textarea">Start Point </label>
             <div class="controls">
               <input type="text" class="input-large" name="sp" placeholder="eg. Nehru Place Bus Terminal"  >
             </div>
@@ -197,9 +197,10 @@ $pass=$_POST["pass"];
 </div>
 
  <div class="control-group">
-            <label class="control-label" for="textarea">Capacity</label>
+            <label class="control-label" for="textarea">Capacity*</label>
             <div class="controls">
               <input type="text" class="input-mini" pattern="^[0-9]$" name="cap" placeholder="eg. 5"  >
+              *Including driver
             </div>
 </div>
  <div class="control-group">

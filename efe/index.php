@@ -74,9 +74,9 @@ if(!session_id() == '')
 </div>
             <form autocomplete="off" action="authenticate.php" method="post">
               <p>
-                <label for="username" class="uname"  > Your email </label>
+                <label for="username" class="uname"  > Your Username </label>
                 
-                <input id="username" autocomplete="on" pattern="^[A-Za-z]{1,20}[0-9]{0,5}@iiitd\.ac\.in$" name="username" required type="text" placeholder="mymail@iiitd.ac.in"/>
+                <input id="username" autocomplete="on" pattern="^[A-Za-z]{1,20}[0-9]{0,5}$" name="username" required type="text" placeholder="xyz10067"/>
               </p>
               <p>
                 <label for="password" class="youpasswd" > Your password </label>

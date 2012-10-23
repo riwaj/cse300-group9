@@ -15,7 +15,7 @@ if (!$con)
 
 mysql_select_db("carpool", $con);
 
-$result = mysql_query("SELECT pass, active, uid FROM users where eid='" . $username . "'");
+$result = mysql_query("SELECT pass, active, uid FROM users where eid='" . $username . "@iiitd.ac.in'");
 
 $row = mysql_fetch_array($result);
 if($row['pass']==$password && $row['active']==1 )

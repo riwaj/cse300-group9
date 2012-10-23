@@ -50,6 +50,7 @@ else
 {
 	echo "<li><a href='dashboard.php'>Home</a></li>";
 	echo "<li><a href='about.php'>About</a></li>";
+	echo "<li><a href='profile.php'>Profile</a></li>";
       echo   "<li class='active'><a href='contact.php'>Contact Us</a></li>";
 }
 ?>

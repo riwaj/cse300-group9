@@ -91,8 +91,8 @@ function changeVisibility(id2,id1) {
 </div>
             <form autocomplete="off" action="register.php" method="post" name="sign">
               <p>
-                <label for="username" class="uname" > Your email </label>
-                <input id="username" name="username" pattern="^[A-Za-z]{1,20}[0-9]{0,5}@iiitd\.ac\.in$" required type="text" placeholder="mymail@iiitd.ac.in"/>
+                <label for="username" class="uname" > Your Username </label>
+                <input id="username" name="username" pattern="^[A-Za-z]{1,20}[0-9]{0,5}$" required type="text" placeholder="xyz10067"/>
               </p>
               <p>
                 <label for="password" class="youpasswd"> Your password </label>

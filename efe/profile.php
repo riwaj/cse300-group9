@@ -1,12 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+<style type="text/css">
+div span::after {
+  width: 0;
+  height: 0;
+  display: inline-block;
+  content: "&darr;";
+  text-indent: -99999px;
+  vertical-align: top;
+  margin-top: 8px;
+  margin-left: 4px;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 4px solid #000;
+  filter: alpha(opacity=50);
+  -khtml-opacity: 0.5;
+  -moz-opacity: 0.5;
+  opacity: 0.5;
+}
+</style>
   <head>
     <meta charset="utf-8">
     <title>IIITD Car Pool</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
+	<script type="text/javascript" src="assets/js/jquery.js">
+	    
+    $(document).ready(function() {
+           $(function () {
+                $("#blob")
+            .popover({
+                offset: 10
+                    })
 
+})
+});
+	</script>
     <!-- Le styles -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
     <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
@@ -91,13 +121,13 @@ mysql_close($con);
   <div class="accordion-group">
     <div class="accordion-heading">
       <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
-        Personal Info
+        <span>Personal Info</span>
       </a>
     </div>
     <div id="collapseOne" class="accordion-body collapse in">
       <div class="accordion-inner">
       <h4>  Name : <?php echo $name?><br>
-        Phone Number : <?php echo $phn?><br>
+        Email : <?php echo $eid?><br>
         User Type : <?php echo $type?><br></h4>
       </div>
     </div>
@@ -105,12 +135,16 @@ mysql_close($con);
   <div class="accordion-group">
     <div class="accordion-heading">
       <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+      <?php
+	  ?>
         Route Info
       </a>
     </div>
     <div id="collapseTwo" class="accordion-body collapse">
       <div class="accordion-inner">
-        Anim pariatur cliche...
+        <a href="#" id="blob" class="btn large primary" rel="popover" data-content="And here's some amazing content. It's very engaging. right?" data-original-title="A title">hover for popover</a>
+
+
       </div>
     </div>
   </div>

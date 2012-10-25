@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>IIITD Car Poor</title> 
+    <title>IIITD Car Pool</title> 
     <script type="text/javascript">
 
 function getdata(_row){
@@ -72,21 +72,37 @@ function getdata(_row){
           <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">Filters<b class="caret"></b></a>
             <ul class="dropdown-menu">
-            <li class=""><a href="http://localhost/SE/efe/dashboard.php">All</a></li>
-              <li class=""><a href="http://localhost/SE/efe/dashboard.php?f=p">Passenger</a></li>
-              <li class=""><a href="http://localhost/SE/efe/dashboard.php?f=o">Car Owner</a></li>
-              <li class=""><a href="">AC Car</a></li>
-              <li class=""><a href="">Non-AC Car</a></li>
+            <?php
+			$url = "http://localhost/SE/efe/dashboard.php?";
+			if(isset($_GET['s']))
+			{
+				$url = $url."s=".$_GET['s']."&";
+			}
+			echo "<li class=''><a href='".$url."'>All</a></li>
+              <li class=''><a href='".$url."f=p&'>Passenger</a></li>
+              <li class=''><a href='".$url."f=o&'>Car Owner</a></li>
+              <li class=''><a href=''>AC Car</a></li>
+              <li class=''><a href=''>Non-AC Car</a></li>";
+			
+			?>
+            
             </ul>
           </li>
           <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">Sort By<b class="caret"></b></a>
             <ul class="dropdown-menu">
-              <li class="active"><a href="#alphabetical">User ID</a></li>
-              <li class=""><a href="#system1-value">User Name</a></li>
-              <li class=""><a href="#system2-value">Capacity</a></li>
-              <li class=""><a href="#user-value">Route Cost</a></li>
-              <li class=""><a href="#selected">Selected</a></li>
+            <?php
+			$url = "http://localhost/SE/efe/dashboard.php?";
+			if(isset($_GET['f']))
+			{
+				$url = $url."f=".$_GET['f']."&";
+			}
+             echo "<li class=''><a href='".$url."s=u&'>User ID</a></li>
+              <li class=''><a href=>User Name</a></li>
+              <li class=''><a href=>Capacity</a></li>
+              <li class=''><a href=>Route Cost</a></li>
+              <li class=''><a href=>Selected</a></li>";
+			  ?>
             </ul>
           </li>
           </ul>
@@ -102,7 +118,8 @@ if(!isset($_SESSION['userid']))
 {
 	 header("Location: http://localhost/SE/efe/unauthrised.php");
 }
-else{
+else
+{
 	$uid=$_SESSION['userid'];
 }
 	?>
@@ -131,21 +148,24 @@ if (!$con)
   }
 
 mysql_select_db("carpool", $con);
-if(!isset($_GET["f"]))
+if(!isset($_GET["f"]) && (!isset($_GET["s"])||$_GET["f"]=='u'))
 {
 	$result = mysql_query("select users.uid, users.name, users.userType, COALESCE(car.modelName,'N/A')as modelName, COALESCE(route.startpoint,'N/A') as startpoint from users left join ((car join owns) join (route join follows))
-on users.uid=owns.oid and car.cid=owns.cid and users.uid=follows.oid and route.rid=follows.rid where users.uid!=".$uid);
+on users.uid=owns.oid and car.cid=owns.cid and users.uid=follows.oid and route.rid=follows.rid where users.uid!='".$uid."'order by users.uid");
 }
 else
 {
 	$filter=$_GET["f"];
+	$sort=$_GET["s"];
 	if($filter=="p")
 	{
-		$result = mysql_query("SELECT * FROM users where uid!='" . $uid . "' and userType='Passenger'");
+		$result = mysql_query("select users.uid, users.name, users.userType, COALESCE(car.modelName,'N/A')as modelName, COALESCE(route.startpoint,'N/A') as startpoint from users left join ((car join owns) join (route join follows))
+on users.uid=owns.oid and car.cid=owns.cid and users.uid=follows.oid and route.rid=follows.rid where users.userType='Passenger' and users.uid!=".$uid);
 	}
 	else if($filter=="o")
 	{
-		$result = mysql_query("SELECT * FROM users where uid!='" . $uid . "' and userType='Car Owner'");
+		$result = mysql_query("select users.uid, users.name, users.userType, COALESCE(car.modelName,'N/A')as modelName, COALESCE(route.startpoint,'N/A') as startpoint from users left join ((car join owns) join (route join follows))
+on users.uid=owns.oid and car.cid=owns.cid and users.uid=follows.oid and route.rid=follows.rid where users.userType='Car Owner' and users.uid!=".$uid);
 	}
 }
 $cnt=0;

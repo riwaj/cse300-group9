@@ -1,5 +1,5 @@
 <?php
-$con = mysql_connect("localhost","root","wirelesslan");
+$con = mysql_connect("localhost","root","uditverma");
 if (!$con)
   {
   die('Could not connect: ' . mysql_error());
@@ -11,13 +11,13 @@ if (!$con)
   $sql_route = "INSERT INTO route VALUES(NULL,'$_POST[sp]','$_POST[m1]','$_POST[m2]','$_POST[m3]','$_POST[m4]','$_POST[m5]','$_POST[cost]')";
    $sql_car = "INSERT INTO car VALUES(NULL,'$_POST[cap]','$_POST[cmodel]','$_POST[ac]','$_POST[plate]')";
 
-  
+  $em = $_POST["email"]."@iiitd.ac.in";
  $type = $_POST['userType'];
 
  if($type == "Passenger"){
 	 
 	 	$hash = md5( rand(0,1000) );
-$sql_passenger="INSERT INTO users VALUES( NULL,'$_POST[name]','$_POST[email]"."@iiitd.ac.in'".",'$_POST[pass]','". mysql_escape_string($hash) ."','$_POST[phn]','Passenger',0)";
+$sql_passenger="INSERT INTO users VALUES( NULL,'$_POST[name]','$em','$_POST[pass]','". mysql_escape_string($hash) ."','$_POST[phn]','Passenger',1)";
  
  if (!mysql_query($sql_passenger,$con))
   {
@@ -30,7 +30,7 @@ $sql_passenger="INSERT INTO users VALUES( NULL,'$_POST[name]','$_POST[email]"."@
  if($type == "Car Owner")
  {
 	 	 	$hash = md5( rand(0,1000) );
-$sql_owner="INSERT INTO users VALUES( NULL,'$_POST[name]','$_POST[email]','$_POST[pass]','". mysql_escape_string($hash) ."','$_POST[phn]','Car Owner',1)";
+$sql_owner="INSERT INTO users VALUES( NULL,'$_POST[name]','$em','$_POST[pass]','". mysql_escape_string($hash) ."','$_POST[phn]','Car Owner',1)";
   if (!mysql_query($sql_owner,$con))
   {
 	  die('Error: ' . mysql_error());
@@ -51,7 +51,7 @@ $sql_owner="INSERT INTO users VALUES( NULL,'$_POST[name]','$_POST[email]','$_POS
   
   
 $plate = mysql_real_escape_string($_POST["plate"]);
-$email = mysql_real_escape_string($_POST["email"]);
+$email = mysql_real_escape_string($em);
 $sql1=mysql_query("SELECT cid FROM car WHERE numberPlate='" . $plate . "'");
 $sql2=mysql_query("SELECT uid FROM users WHERE eid='" . $email . "'");
 $cid = mysql_fetch_array($sql1);

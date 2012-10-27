@@ -11,7 +11,7 @@ else
 }
 	?>
 <?php
-$con = mysql_connect("localhost","root","wirelesslan");
+$con = mysql_connect("localhost","root","uditverma");
 if (!$con)
   {
   die('Could not connect: ' . mysql_error());

@@ -35,6 +35,8 @@ if(!session_id() == '')
 	session_unset();
    session_destroy();
 }
+if(isset($_GET['r']))
+{$reason=$_GET['r'];}
 ?>
 <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
@@ -73,7 +75,12 @@ if(!session_id() == '')
           <div id="buttons">
 </div>
 <div class="alert alert-error">
-Invalid User Name / Password. Please Try Again.
+<?php 
+if($reason=="i")
+{echo "Invalid User Name / Password. Please Try Again.";}
+else if($reason=="a")
+{echo "Account Not Activated.<br> Please Activate Acoount by clicking on the link in the e-mail sent by us.";}
+?>
 </div>
             <form autocomplete="off" action="authenticate.php" method="post">
               <p>

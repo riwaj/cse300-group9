@@ -5,15 +5,18 @@
 <meta charset="utf-8">
 <title>IIITD Car Pool</title>
 
-<script type='text/javascript' src="assets/js/jquery.pwdstr-1.0.source.js"></script>
-<script language="javascript">
-    $(document).ready(function(){
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/jquery.pwdstr-1.0.source.js"></script>
+<script>
+$(document).ready(function(){
         $("#username").focus();
         $("#password").pwdstr("#info");
     });
 </script>
+
 <script language="JavaScript" type="text/javascript">
 function changeVisibility(id2,id1) {
+	
 	    var e=document.sign.pass.value;
 		var x=document.sign.cpassword.value;
 		var f = document.getElementById(id1);

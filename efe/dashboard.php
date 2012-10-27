@@ -97,11 +97,14 @@ function getdata(_row){
 			{
 				$url = $url."f=".$_GET['f']."&";
 			}
-             echo "<li class=''><a href='".$url."s=u&'>User ID</a></li>
-              <li class=''><a href=>User Name</a></li>
-              <li class=''><a href=>Capacity</a></li>
-              <li class=''><a href=>Route Cost</a></li>
-              <li class=''><a href=>Selected</a></li>";
+             echo "
+              <li class=''><a href='".$url."s=n&'>User Name</a></li>";
+			  if(isset($_GET['f']) && $_GET['f']=="o")
+			  {
+				  echo "
+              <li class=''><a href='".$url."s=cap&'>Capacity</a></li>
+             ";
+			  }
 			  ?>
             </ul>
           </li>
@@ -135,7 +138,6 @@ else
           	<th style="display:none">uid</th> 
             <th>User Name</th>
             <th>User Type</th>
-            <th>Car Model</th>
             <th>Starting Point</th>        
           </tr>
         </thead>
@@ -148,24 +150,67 @@ if (!$con)
   }
 
 mysql_select_db("carpool", $con);
-if(!isset($_GET["f"]) && (!isset($_GET["s"])||$_GET["f"]=='u'))
+if(!isset($_GET["f"]))
 {
+	if(isset($_GET["s"]))
+	{
+		$sort=$_GET["s"];
+	}
+	if(!isset($_GET["s"]) || $_GET["s"]!="n")
+	{
 	$result = mysql_query("select users.uid, users.name, users.userType, COALESCE(car.modelName,'N/A')as modelName, COALESCE(route.startpoint,'N/A') as startpoint from users left join ((car join owns) join (route join follows))
 on users.uid=owns.oid and car.cid=owns.cid and users.uid=follows.oid and route.rid=follows.rid where users.uid!='".$uid."'order by users.uid");
+	}
+	else if($sort=="n")
+		{
+		$result = mysql_query("select users.uid, users.name, users.userType, COALESCE(car.modelName,'N/A')as modelName, COALESCE(route.startpoint,'N/A') as startpoint from users left join ((car join owns) join (route join follows))
+on users.uid=owns.oid and car.cid=owns.cid and users.uid=follows.oid and route.rid=follows.rid where users.uid!='".$uid."'order by users.name");
+		}
+	
 }
 else
 {
+	if($_GET["f"]=="o")
+{
+	if(isset($_GET["s"]))
+	{
+		$sort=$_GET["s"];
+	}
+	if(!isset($_GET["s"]))
+	{
+	$result = mysql_query("select users.uid, users.name, users.userType, COALESCE(car.modelName,'N/A')as modelName, COALESCE(route.startpoint,'N/A') as startpoint from users left join ((car join owns) join (route join follows))
+on users.uid=owns.oid and car.cid=owns.cid and users.uid=follows.oid and route.rid=follows.rid where users.userType='Car Owner' and users.uid!='".$uid."'order by users.uid");
+	}
+	else if($sort=="n")
+		{
+		$result = mysql_query("select users.uid, users.name, users.userType, COALESCE(car.modelName,'N/A')as modelName, COALESCE(route.startpoint,'N/A') as startpoint from users left join ((car join owns) join (route join follows))
+on users.uid=owns.oid and car.cid=owns.cid and users.uid=follows.oid and route.rid=follows.rid where users.userType='Car Owner' and users.uid!='".$uid."'order by users.name");
+		}
+		else if($sort=="cap")
+		{
+		$result = mysql_query("select users.uid, users.name, users.userType, COALESCE(car.modelName,'N/A')as modelName, COALESCE(route.startpoint,'N/A') as startpoint,COALESCE(car.capacity,'N/A') as cap from users left join ((car join owns) join (route join follows)) on users.uid=owns.oid and car.cid=owns.cid and users.uid=follows.oid and route.rid=follows.rid where users.userType='Car Owner' and users.uid!='".$uid."'order by cap");
+		}
+	
+}
+
 	$filter=$_GET["f"];
-	$sort=$_GET["s"];
 	if($filter=="p")
 	{
-		$result = mysql_query("select users.uid, users.name, users.userType, COALESCE(car.modelName,'N/A')as modelName, COALESCE(route.startpoint,'N/A') as startpoint from users left join ((car join owns) join (route join follows))
-on users.uid=owns.oid and car.cid=owns.cid and users.uid=follows.oid and route.rid=follows.rid where users.userType='Passenger' and users.uid!=".$uid);
-	}
-	else if($filter=="o")
+		if(isset($_GET["s"]))
 	{
+		$sort=$_GET["s"];
+	}
+	if(!isset($_GET["s"]) || $_GET["s"]!="n")
+	{
+	$result = mysql_query("select users.uid, users.name, users.userType, COALESCE(car.modelName,'N/A')as modelName, COALESCE(route.startpoint,'N/A') as startpoint from users left join ((car join owns) join (route join follows))
+on users.uid=owns.oid and car.cid=owns.cid and users.uid=follows.oid and route.rid=follows.rid where users.userType='Passenger' and users.uid!='".$uid."'order by users.uid");
+	}
+	else if($sort=="n")
+		{
 		$result = mysql_query("select users.uid, users.name, users.userType, COALESCE(car.modelName,'N/A')as modelName, COALESCE(route.startpoint,'N/A') as startpoint from users left join ((car join owns) join (route join follows))
-on users.uid=owns.oid and car.cid=owns.cid and users.uid=follows.oid and route.rid=follows.rid where users.userType='Car Owner' and users.uid!=".$uid);
+on users.uid=owns.oid and car.cid=owns.cid and users.uid=follows.oid and route.rid=follows.rid where users.userType='Passenger' and users.uid!='".$uid."'order by users.name");
+		}
+		
 	}
 }
 $cnt=0;
@@ -176,7 +221,6 @@ while($row = mysql_fetch_array($result))
   echo "<td style='display:none' id='s".$cnt."'>" . $row['uid'] . "</td>";
  echo "<td>" . $row['name'] . "</td>";
   echo "<td>" . $row['userType'] . "</td>";
-  echo "<td>" . $row['modelName'] . "</td>";
   echo "<td>" . $row['startpoint'] . "</td>";
   echo "</tr>";
   $cnt=$cnt+1;

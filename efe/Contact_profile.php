@@ -6,6 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
+    <style type="text/css">
+div span::after {
+  width: 0;
+  height: 0;
+  display: inline-block;
+  content: "&darr;";
+  text-indent: -99999px;
+  vertical-align: top;
+  margin-top: 8px;
+  margin-left: 4px;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 4px solid #000;
+  filter: alpha(opacity=50);
+  -khtml-opacity: 0.5;
+  -moz-opacity: 0.5;
+  opacity: 0.5;
+}
+</style>
+
 
     <!-- Le styles -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
@@ -76,6 +96,17 @@ $name=$row['name'];
 $type=$row['userType'];
 $eid=$row['eid'];
 $phn=$row['phone'];
+if($type=="Car Owner")
+{
+	$car =  mysql_query("select car.modelName, car.capacity,car.AC,car.numberPlate from car,users,owns
+						where car.cid=owns.cid and owns.oid=".$pid);
+	$row = mysql_fetch_array($car);
+	$cname=$row['modelName'];
+	$cap=$row['capacity'];
+	$np=$row['numberPlate'];
+	$AC=$row['AC'];
+}
+
 mysql_close($con);
 ?>
     <div class="container">
@@ -86,7 +117,7 @@ mysql_close($con);
 <div class="span3 offset4">
       <div class="row">
       <div class="btn-group pull-right">
-  <a href="register.php"><button class="btn-primary">Message Me</button></a>
+
 </div>
       <div class="row">
 </div>      
@@ -95,13 +126,13 @@ mysql_close($con);
   <div class="accordion-group">
     <div class="accordion-heading">
       <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
-        Personal Info
+        <span>Personal Info</span>
       </a>
     </div>
     <div id="collapseOne" class="accordion-body collapse in">
       <div class="accordion-inner">
       <h4>  Name : <?php echo $name?><br>
-        Phone Number : <?php echo $phn?><br>
+        Email ID : <?php echo $eid?><br>
         User Type : <?php echo $type?><br></h4>
       </div>
     </div>
@@ -109,12 +140,37 @@ mysql_close($con);
   <div class="accordion-group">
     <div class="accordion-heading">
       <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
-        Route Info
+        <?php
+	  if($type=="Passenger")
+	  {
+		  echo "<span>Route Followed</span>
+		  </a>
+		  </div>";
+	  }
+	  else
+	  {
+		  echo "<span>Car Info</span>
+		  </a>
+		  </div>";
+	  }
+	  ?>
       </a>
     </div>
     <div id="collapseTwo" class="accordion-body collapse">
       <div class="accordion-inner">
-        Anim pariatur cliche...
+         <?php
+	  if($type=="Passenger")
+	  {
+		  echo "Passenger";
+	  }
+	  else
+	  {
+		  echo "<h4>  Model Name :".$cname."<br>
+       Capacity :".$cap."<br>
+         AC :".$AC."<br>
+          Number Plate :".$np."<br></h4>";
+	  }
+	  ?>
       </div>
     </div>
   </div>

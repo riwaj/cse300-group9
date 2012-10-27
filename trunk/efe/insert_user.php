@@ -17,7 +17,7 @@ if (!$con)
  if($type == "Passenger"){
 	 
 	 	$hash = md5( rand(0,1000) );
-$sql_passenger="INSERT INTO users VALUES( NULL,'$_POST[name]','$_POST[email]"."@iiitd.ac.in'".",'$_POST[pass]','". mysql_escape_string($hash) ."','$_POST[phn]','Passenger',1)";
+$sql_passenger="INSERT INTO users VALUES( NULL,'$_POST[name]','$_POST[email]"."@iiitd.ac.in'".",'$_POST[pass]','". mysql_escape_string($hash) ."','$_POST[phn]','Passenger',0)";
  
  if (!mysql_query($sql_passenger,$con))
   {

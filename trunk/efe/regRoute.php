@@ -22,7 +22,18 @@
   </head>
 
   <body>
-
+    <?php
+	
+session_start();
+if(!isset($_SESSION['userid']))
+{
+	 header("Location: http://localhost/SE/efe/unauthrised.php");
+}
+else
+{
+	$uid=$_SESSION['userid'];
+}
+	?>
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
@@ -49,12 +60,12 @@
     <div class="container span4 offset4">
     <h1>Add A Route</h1>
  <div class="row"><div>
-      <form class="form-horizontal" name="form1" action="insert_se.php" method="post">
+      <form class="form-horizontal" name="form1" action="insertRoute.php" method="post">
         <fieldset>
 
           <div id="passenger">
           <div class="control-group">
-          <h3>Route Info</h3>            <label class="control-label" for="textarea">Start Point </label>
+          <h3>Route Info<h5>Enter Milestones in order of occurance</h5></h3>            <label class="control-label" for="textarea">Start Point </label>
             <div class="controls">
               <input type="text" class="input-large" name="sp" placeholder="eg. Nehru Place Bus Terminal" required>
             </div>
@@ -126,8 +137,10 @@
                    
 
           <div class="form-actions">
- <button type="submit" class="btn btn-success">Add Route</button>
-            <button class="btn" ><a href="index.php">Cancel</a></button>
+          <div class="btn-group pull-right">
+ <button type="submit" class="btn btn-large btn-success">Add Route</button>
+            <button class="btn btn-large" ><a href="profile.php">Cancel</a></button>
+          </div>
           </div>
         </fieldset>
       </form>

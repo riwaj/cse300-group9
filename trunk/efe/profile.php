@@ -63,6 +63,38 @@ if(!isset($_SESSION['userid']))
 	 header("Location: http://localhost/SE/efe/unauthrised.php");
 }
 ?>
+<?php
+
+$uid=$_SESSION['userid'];
+$con = mysql_connect("localhost","root","wirelesslan");
+if (!$con)
+  {
+  die('Could not connect: ' . mysql_error());
+  }
+
+mysql_select_db("carpool", $con);
+
+$result = mysql_query("SELECT * FROM users where uid='" . $uid . "'");
+
+$row = mysql_fetch_array($result);
+ 
+$name=$row['name'];
+$type=$row['userType'];
+$eid=$row['eid'];
+$phn=$row['phone'];
+if($type=="Car Owner")
+{
+	$car =  mysql_query("select car.modelName, car.capacity,car.AC,car.numberPlate from car,users,owns
+						where car.cid=owns.cid and owns.oid=".$uid);
+	$row = mysql_fetch_array($car);
+	$cname=$row['modelName'];
+	$cap=$row['capacity'];
+	$np=$row['numberPlate'];
+	$AC=$row['AC'];
+}
+mysql_close($con);
+?>
+
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
@@ -91,32 +123,15 @@ if(!isset($_SESSION['userid']))
 <div class="span4 offset4">
       <div class="row">
       <div class="btn-group pull-right">
-  <a href="register.php"><button class="btn">Edit</button></a>
+  <a href="register.php"><button class="btn btn-primary">Edit Profile</button></a>
+  <?php if($type=="Car Owner")
+  {
+   echo "<a href='regRoute.php'><button class='btn btn-warning'>Add a Route</button></a>";
+  }
+  ?>
 </div>
       <div class="row">
 </div>      
-<?php
-
-$uid=$_SESSION['userid'];
-$con = mysql_connect("localhost","root","wirelesslan");
-if (!$con)
-  {
-  die('Could not connect: ' . mysql_error());
-  }
-
-mysql_select_db("carpool", $con);
-
-$result = mysql_query("SELECT * FROM users where uid='" . $uid . "'");
-
-
-$row = mysql_fetch_array($result);
- 
-$name=$row['name'];
-$type=$row['userType'];
-$eid=$row['eid'];
-$phn=$row['phone'];
-mysql_close($con);
-?>
 <div class="accordion" id="accordion2">
   <div class="accordion-group">
     <div class="accordion-heading">
@@ -127,6 +142,7 @@ mysql_close($con);
     <div id="collapseOne" class="accordion-body collapse in">
       <div class="accordion-inner">
       <h4>  Name : <?php echo $name?><br>
+      Phone Number : <?php echo $phn?><br>
         Email : <?php echo $eid?><br>
         User Type : <?php echo $type?><br></h4>
       </div>
@@ -136,15 +152,35 @@ mysql_close($con);
     <div class="accordion-heading">
       <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
       <?php
+	  if($type=="Passenger")
+	  {
+		  echo "Route Followed
+		  </a>
+		  </div>";
+	  }
+	  else
+	  {
+		  echo "<span>Car Info</span>
+		  </a>
+		  </div>";
+	  }
 	  ?>
-        Route Info
-      </a>
-    </div>
+        
     <div id="collapseTwo" class="accordion-body collapse">
       <div class="accordion-inner">
-        <a href="#" id="blob" class="btn large primary" rel="popover" data-content="And here's some amazing content. It's very engaging. right?" data-original-title="A title">hover for popover</a>
-
-
+   <?php
+	  if($type=="Passenger")
+	  {
+		  echo "Passenger";
+	  }
+	  else
+	  {
+		  echo "<h4>  Model Name :".$cname."<br>
+       Capacity :".$cap."<br>
+         AC :".$AC."<br>
+          Number Plate :".$np."<br></h4>";
+	  }
+	  ?>
       </div>
     </div>
   </div>

@@ -39,10 +39,14 @@ $_SESSION['userid']=$uid;
 	ob_end_flush(); 
 exit;
 }
-
+else if($row['pass']==$password && $row['active']==0 )
+{
+	header("Location: http://localhost/SE/efe/retryLogin.php?r=a");
+	exit;
+}
 else
 {
-	header("Location: http://localhost/SE/efe/retryLogin.php");
+	header("Location: http://localhost/SE/efe/retryLogin.php?r=i");
 	exit;
 }
 

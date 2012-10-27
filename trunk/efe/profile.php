@@ -66,7 +66,7 @@ if(!isset($_SESSION['userid']))
 <?php
 
 $uid=$_SESSION['userid'];
-$con = mysql_connect("localhost","root","wirelesslan");
+$con = mysql_connect("localhost","root","uditverma");
 if (!$con)
   {
   die('Could not connect: ' . mysql_error());

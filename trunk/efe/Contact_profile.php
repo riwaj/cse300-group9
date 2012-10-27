@@ -61,7 +61,7 @@ div span::after {
           <div class="nav-collapse">
             <ul class="nav pull-right">
               <li ><a href="dashboard.php">Home</a></li>
-              <li class="active"><a href="profile.php">Profile</a></li>
+              <li class=""><a href="profile.php">Profile</a></li>
                             <li><a href="index.php">Logout</a></li>
 
   <li><a href="contact.php">Contact Us</a></li>   
@@ -79,7 +79,7 @@ if(!isset($_SESSION['userid']))
 else{
 	$uid=$_SESSION['userid'];
 }
-$con = mysql_connect("localhost","root","wirelesslan");
+$con = mysql_connect("localhost","root","uditverma");
 if (!$con)
   {
   die('Could not connect: ' . mysql_error());
@@ -155,7 +155,7 @@ mysql_close($con);
 	  }
 	  ?>
       </a>
-    </div>
+    
     <div id="collapseTwo" class="accordion-body collapse">
       <div class="accordion-inner">
          <?php
@@ -173,6 +173,83 @@ mysql_close($con);
 	  ?>
       </div>
     </div>
+	</div>
+	<?php
+	if($type=="Car Owner")
+{
+$con = mysql_connect("localhost","root","uditverma");
+if (!$con)
+  {
+  die('Could not connect: ' . mysql_error());
+  }
+
+mysql_select_db("carpool", $con);
+
+$result = mysql_query("select route.rid, route.startpoint, route.milestone1, route.milestone2, route.milestone3, route.milestone4, route.milestone5, route.rcost
+from route, follows where route.rid=follows.rid and follows.oid='" . $pid. "'");
+
+$cnt1=6;
+$cntr=1;
+
+echo	" <div class='accordion-group'>
+    <div class='accordion-heading'>
+      <a class='accordion-toggle' data-toggle='collapse' data-parent='#accordion2' href='#collapseThree'>
+        <span>Route Info</span>
+      </a>
+    </div>
+    <div id='collapseThree' class='accordion-body collapse'>
+      <div class='accordion-inner'>
+	  <div class='accordion' id='accordion3'>";
+	  while($row = mysql_fetch_array($result))
+ {	  
+ echo 
+  "<div class='accordion-group'>
+    <div class='accordion-heading'>
+      <a class='accordion-toggle' data-toggle='collapse' data-parent='#accordion3' href='#collapse".$cnt1."'>
+        <span>Route ".$cntr." (From ".$row['startpoint'].")</span>
+      </a>
+    </div>
+    <div id='collapse".$cnt1."' class='accordion-body collapse'>
+      <div class='accordion-inner'>
+        
+		<h4>Start Point : ".$row['startpoint']."</br>
+		Milestone 1 : ".$row['milestone1']."</br>
+		Milestone 2 : ".$row['milestone2']."</br>
+		Milestone 3 : ".$row['milestone3']."</br>
+		Milestone 4 : ".$row['milestone4']."</br>
+		Milestone 5 : ".$row['milestone5']."</br>
+		Route Cost : Rs.".$row['rcost']."</h4><br>";
+		$data = mysql_query("select count(*) as num from route, cpool
+where cpool.passenger='".$uid."' and cpool.route='".$row['rid']."'") or die(mysql_error());
+
+$rown = mysql_fetch_assoc($data);
+
+$numfo = $rown['num'];
+if($numfo==0){
+		echo"<form method='post' action='join_cpool.php'>
+		<input type='text' name='ploc' required placeholder='Pick Up Location for above route'/>
+		<input type='hidden' name='calbak' value='".$pid."' required/>
+		<input type='hidden' name='route' required value='".$row['rid']."'/>
+		<button type='submit' class='btn btn-success' value='follow'>Follow This Route</button>
+         </form>		";
+		}
+		else
+		{
+		echo "<button class='btn btn-success' value='follow'>Unfollow This Route</button> ";
+		}
+     echo" </div>
+    </div>
+  </div>";
+$cnt1=$cnt1+1;
+$cntr=$cntr+1;
+}
+ echo "</div>
+    </div>
+  </div>";
+    mysql_close($con);
+  }
+
+  ?>
   </div>
 </div>
       </div>

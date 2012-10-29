@@ -1,13 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-<style> 
-form {border-style:dotted;
-border-width:1px; }
-
-
-</style>
-
     <meta charset="utf-8">
     <title>IIITD Car Pool</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,11 +23,9 @@ border-width:1px; }
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
-	
   </head>
 
   <body>
-
 
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
@@ -47,29 +38,29 @@ border-width:1px; }
           <a class="brand" href="#">IIITD Car Pool</a>
           <div class="nav-collapse">
             <ul class="nav pull-right">
-                         <?php
+            <?php
 session_start();
 if(!isset($_SESSION['userid']))
 {
 	 echo "<li><a href='index.php'><i class='icon-home icon-white'></i>Home</a></li>";
 	 	echo "<li><a href='about.php'>About</a></li>";
-      echo   "<li class='active'><a href='contact.php'>Contact Us</a></li>";
-	  	   echo   "<li><a href='faq.php'>FAQ</a></li>";
+		echo   "<li><a href='contact.php'>Contact Us</a></li>";
+      echo   "<li class='active'><a href='faq.php'>FAQ</a></li>";
 
-}
+		}
+
 else
 {
 	echo "<li><a href='dashboard.php'><i class='icon-home icon-white'></i> Home</a></li>";
 	echo "<li><a href='about.php'>About</a></li>";
-	echo "<li><a href='profile.php'>Profile</a></li>";
-		echo "<li><a href='index.php'>Logout</a></li>";
-      echo   "<li class='active'><a href='contact.php'>Contact Us</a></li>";
-	  	   echo   "<li><a href='faq.php'>FAQ</a></li>";
+      echo   "<li><a href='profile.php'>Profile</a></li>";
+	    echo "<li><a href=index.php'>Logout</a></li>";
+	   echo   "<li><a href='contact.php'>Contact Us</a></li>";
+	         echo   "<li class='active'><a href='faq.php'>FAQ</a></li>";
 
 }
 ?>
-                          <li>
- 
+
 </li>
             </ul>
           </div><!--/.nav-collapse -->
@@ -77,40 +68,34 @@ else
       </div>
     </div>
 
-    <div class="container span4 offset4">
-    <h1> <div align="left"> Contact Us</div></h1>
+    <div class="container">
+
+<div class="span7 offset2">
+    <h1> <div align="left">Frequently asked questions about IIITD Carpool </div></h1>
+    <br>
+
 	
+	<h4>1. Why can I not login from any account than IIITD account?</h4>
+	<p> IIITD car pool is a car pool software for students studying in IIITD for use bound to IIITD.</p>
+<br>
+<h4>2. Is my password insecured?</h4>
+<p>We do store your password in a hash function, hence it is hidden from the administrators as well.</p>
+<br>
+<h4>3. Can I be a car owner as well as a passenger?</h4>
+<p>Yes you can be both.</p>
 <br>
 
-	<form>
-	<h4> <div align="left"> Postal Address</div></h4>
-	<br>
-	<?php echo "IIIT-Delhi" ?> <br>
-<?php echo"	
-Okhla Industrial Estate Phase III"?><br>
-<?php echo "(Near Govind Puri Metro Station)"?><br>
-<?php echo "New Delhi, India - 110020 " ?> <br><br>
-</form>
+<h4>4. Why do I need to write the milestones while creating my profile?</h4>
+<p>Specifying your milestones would help the passengers connect with you more freely.</p>
+</div>
 
-<form>
-<h4> <div align="left"> Email Address <br><br></div></h4>
-	<?php echo"Write us at:"?> <br>
-	 <a href="mailto:car-pool-grp9@googlegroups.com"> car-pool-grp9@googlegroups.com</a>
-<br> <br>
-	
-    </form>
-	
-    
-  </div>
-
-
+      
     </div> <!-- /container -->
 
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-
-	<script src="assets/js/jquery.js"></script> 
+ <script src="assets/js/jquery.js"></script> 
 <script src="assets/js/bootstrap-transition.js"></script> 
 <script src="assets/js/bootstrap-alert.js"></script> 
 <script src="assets/js/bootstrap-modal.js"></script> 

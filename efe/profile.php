@@ -60,13 +60,13 @@ div span::after {
 session_start();
 if(!isset($_SESSION['userid']))
 {
-	 header("Location: http://localhost/SE/efe/unauthrised.php");
+	 header("Location: http://localhost:809/SE/efe/unauthrised.php");
 }
 ?>
 <?php
 
 $uid=$_SESSION['userid'];
-$con = mysql_connect("localhost","root","uditverma");
+$con = mysql_connect("localhost","root","shubhansh");
 if (!$con)
   {
   die('Could not connect: ' . mysql_error());
@@ -106,10 +106,14 @@ mysql_close($con);
           <a class="brand" href="#">IIITD Car Pool</a>
           <div class="nav-collapse">
             <ul class="nav pull-right">
-              <li ><a href="dashboard.php">Home</a></li>
+              <li ><a href="dashboard.php"><i class="icon-home icon-white"></i> Home</a></li>
+			  <li><a href="about.php">About</a></li>
               <li class="active"><a href="profile.php">Profile</a></li>
                            <li><a href="index.php">Logout</a></li>   
-                  <li><a href="contact.php">Contact Us</a></li>       
+                  <li><a href="contact.php">Contact Us</a></li>   
+				  	   <li><a href="faq.php">FAQ</a></li>;
+
+   				  
             </ul>
           </div><!--/.nav-collapse -->
         </div>

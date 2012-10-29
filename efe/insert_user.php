@@ -1,5 +1,5 @@
 <?php
-$con = mysql_connect("localhost","root","uditverma");
+$con = mysql_connect("localhost","root","shubhansh");
 if (!$con)
   {
   die('Could not connect: ' . mysql_error());
@@ -80,7 +80,7 @@ $sql_follows = "INSERT INTO follows VALUES(NULL,'$oid[uid]','$rid[rid]')";
  
 
 mysql_close($con);
-header("Location: http://localhost/SE/efe/index.php");
+header("Location: http://localhost:809/SE/efe/index.php");
 exit;
 ?>
 

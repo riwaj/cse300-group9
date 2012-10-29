@@ -68,9 +68,11 @@ function changeVisibility(id2,id1) {
           <a class="brand" href="#">IIITD Car Pool</a>
           <div class="nav-collapse">
             <ul class="nav pull-right">
-              <li class="active"><a href="dashboard.php">Home</a></li>
+              <li class="active"><a href="dashboard.php"><i class="icon-home icon-white"></i> Home</a></li>
               <li><a href="profile.php">Profile</a></li>
              <li><a href="contact.php">Contact Us</a></li>
+			 	   <li><a href="faq.php">FAQ</a></li>;
+
             </ul>
           </div><!--/.nav-collapse -->
         </div>

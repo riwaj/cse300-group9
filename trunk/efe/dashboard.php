@@ -7,7 +7,7 @@
 
 function getdata(_row){
     var _temp=document.getElementById("s"+_row).innerHTML;
-	window.location.href="http://localhost/SE/efe/Contact_profile.php?uid="+_temp;
+	window.location.href="http://localhost:809/SE/efe/Contact_profile.php?uid="+_temp;
   
 }
 </script>
@@ -48,13 +48,13 @@ function getdata(_row){
           <div class="nav-collapse">
             <ul class="nav pull-right">
  <li class="active"><a href="dashboard.php"><i class="icon-home icon-white"></i> Home</a></li>
-              <li><a href="profile.php">Profile</a></li>
+            <li><a href="about.php">About</a></li>            
+			<li><a href="profile.php">Profile</a></li>
 <li><a href="index.php">Logout</a></li>                     
   <li><a href="contact.php">Contact Us</a></li>
-  <li>
-  <input type="text" class="input-medium search-query">
-  <button type="submit" class="btn">Search</button>
-  </li>
+  	  <li><a href="faq.php">FAQ</a></li>
+  
+ 
 </li> </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -73,7 +73,7 @@ function getdata(_row){
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">Filters<b class="caret"></b></a>
             <ul class="dropdown-menu">
             <?php
-			$url = "http://localhost/SE/efe/dashboard.php?";
+			$url = "http://localhost:809/SE/efe/dashboard.php?";
 			if(isset($_GET['s']))
 			{
 				$url = $url."s=".$_GET['s']."&";
@@ -92,7 +92,7 @@ function getdata(_row){
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">Sort By<b class="caret"></b></a>
             <ul class="dropdown-menu">
             <?php
-			$url = "http://localhost/SE/efe/dashboard.php?";
+			$url = "http://localhost:809/SE/efe/dashboard.php?";
 			if(isset($_GET['f']))
 			{
 				$url = $url."f=".$_GET['f']."&";
@@ -119,7 +119,7 @@ function getdata(_row){
 session_start();
 if(!isset($_SESSION['userid']))
 {
-	 header("Location: http://localhost/SE/efe/unauthrised.php");
+	 header("Location: http://localhost:809/SE/efe/unauthrised.php");
 }
 else
 {
@@ -127,9 +127,13 @@ else
 }
 	?>
 <div class="container">
-      <h1>Find a Match</h1>
+      <h1><div align="left"> Find a Match 
       
-   
+  
+  <input type="text" class="input-high search-query">
+  <button type="submit" class="btn">Search</button>
+ </div></h1>
+  
  <div class="row">
           <div id="myTabContent" class="tab-content">
       <table class="table table-striped">
@@ -143,7 +147,7 @@ else
         </thead>
         <tbody>
 <?php
-$con = mysql_connect("localhost","root","uditverma");
+$con = mysql_connect("localhost","root","shubhansh");
 if (!$con)
   {
   die('Could not connect: ' . mysql_error());

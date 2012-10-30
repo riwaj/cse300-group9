@@ -1,10 +1,10 @@
 <?php
-$con = mysql_connect("localhost","root","uditverma");
+$con = mysql_connect("localhost","group9","grp9football");
 if (!$con)
   {
   die('Could not connect: ' . mysql_error());
   }
-  mysql_select_db("carpool", $con);
+  mysql_select_db("group9", $con);
 
 
  
@@ -80,7 +80,7 @@ $sql_follows = "INSERT INTO follows VALUES(NULL,'$oid[uid]','$rid[rid]')";
  
 
 mysql_close($con);
-header("Location: http://localhost/SE/efe/index.php");
+header("Location: http://192.168.1.20:8089/Test_Email.php?email=".$em."&hash=".$hash."");
 exit;
 ?>
 

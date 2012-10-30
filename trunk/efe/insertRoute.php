@@ -3,7 +3,7 @@
 session_start();
 if(!isset($_SESSION['userid']))
 {
-	 header("Location: http://localhost/SE/efe/unauthrised.php");
+	 header("Location: http://192.168.1.20:8089/unauthrised.php");
 }
 else
 {
@@ -11,12 +11,12 @@ else
 }
 	?>
 <?php
-$con = mysql_connect("localhost","root","uditverma");
+$con = mysql_connect("localhost","group9","grp9football");
 if (!$con)
   {
   die('Could not connect: ' . mysql_error());
   }
-  mysql_select_db("carpool", $con);
+  mysql_select_db("group9", $con);
   
  $sql_route = "INSERT INTO route VALUES(NULL,'$_POST[sp]','$_POST[m1]','$_POST[m2]','$_POST[m3]','$_POST[m4]','$_POST[m5]','$_POST[cost]')";
    
@@ -36,6 +36,6 @@ if (!$con)
   
   
 mysql_close($con);
-header("Location: http://localhost/SE/efe/profile.php");
+header("Location: http://192.168.1.20:8089/profile.php");
 exit;
   ?>

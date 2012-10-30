@@ -25,7 +25,7 @@
 
 function getdata(_row){
     var _temp=document.getElementById("s"+_row).innerHTML;
-	window.location.href="http://localhost/SE/efe/Contact_profile.php?uid="+_temp;
+	window.location.href="http://192.168.1.20:8089/Contact_profile.php?uid="+_temp;
   
 }
 </script>
@@ -90,7 +90,7 @@ function getdata(_row){
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">Filters<b class="caret"></b></a>
             <ul class="dropdown-menu">
             <?php
-			$url = "http://localhost/SE/efe/dashboard.php?";
+			$url = "http://192.168.1.20:8089/dashboard.php?";
 			if(isset($_GET['s']))
 			{
 				$url = $url."s=".$_GET['s']."&";
@@ -109,7 +109,7 @@ function getdata(_row){
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">Sort By<b class="caret"></b></a>
             <ul class="dropdown-menu">
             <?php
-			$url = "http://localhost/SE/efe/dashboard.php?";
+			$url = "http://192.168.1.20:8089/dashboard.php?";
 			if(isset($_GET['f']))
 			{
 				$url = $url."f=".$_GET['f']."&";
@@ -136,7 +136,7 @@ function getdata(_row){
 session_start();
 if(!isset($_SESSION['userid']))
 {
-	 header("Location: http://localhost/SE/efe/unauthrised.php");
+	 header("Location: http://192.168.1.20:8089/unauthrised.php");
 }
 else
 {
@@ -148,7 +148,7 @@ else
       
 		<form>
 			<fieldset>
-				<input type="text" name="search" value="" id="id_search" placeholder="Search Name or Place" autofocus />
+				<input type="text" name="search" value="" id="id_search" placeholder="Search Name or Place" autofocus />  <i class="icon-search"></i>
 			</fieldset>
 		</form>
 
@@ -165,13 +165,13 @@ else
         </thead>
         <tbody>
 <?php
-$con = mysql_connect("localhost","root","uditverma");
+$con = mysql_connect("localhost","root","group9");
 if (!$con)
   {
   die('Could not connect: ' . mysql_error());
   }
 
-mysql_select_db("carpool", $con);
+mysql_select_db("group9", $con);
 if(!isset($_GET["f"]))
 {
 	if(isset($_GET["s"]))

@@ -6,7 +6,7 @@ if (!$con)
   }
   mysql_select_db("group9", $con);
 
-$sql_verify = "update users set activate=1 where hash=".$_GET['c']."";
+$sql_verify = "update users set active=1 where hash='".$_GET['c']."'";
    
    
     if (!mysql_query($sql_verify,$con))

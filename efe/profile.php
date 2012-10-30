@@ -60,19 +60,19 @@ div span::after {
 session_start();
 if(!isset($_SESSION['userid']))
 {
-	 header("Location: http://localhost/SE/efe/unauthrised.php");
+	 header("Location: http://192.168.1.20:8089/unauthrised.php");
 }
 ?>
 <?php
 
 $uid=$_SESSION['userid'];
-$con = mysql_connect("localhost","root","uditverma");
+$con = mysql_connect("localhost","group9","grp9football");
 if (!$con)
   {
   die('Could not connect: ' . mysql_error());
   }
 
-mysql_select_db("carpool", $con);
+mysql_select_db("group9", $con);
 
 $result = mysql_query("SELECT * FROM users where uid='" . $uid . "'");
 
@@ -191,13 +191,13 @@ mysql_close($con);
   <?php
 	if($type=="Car Owner")
 {
-$con = mysql_connect("localhost","root","uditverma");
+$con = mysql_connect("localhost","group9","grp9football");
 if (!$con)
   {
   die('Could not connect: ' . mysql_error());
   }
 
-mysql_select_db("carpool", $con);
+mysql_select_db("group9", $con);
 
 $result = mysql_query("select route.rid, route.startpoint, route.milestone1, route.milestone2, route.milestone3, route.milestone4, route.milestone5, route.rcost
 from route, follows where route.rid=follows.rid and follows.oid='" . $uid. "'");

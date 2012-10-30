@@ -27,7 +27,7 @@
 session_start();
 if(!isset($_SESSION['userid']))
 {
-	 header("Location: http://localhost/SE/efe/unauthrised.php");
+	 header("Location: http://192.168.1.20:8089/unauthrised.php");
 }
 else
 {

@@ -7,21 +7,22 @@
 <?php
 $username=$_POST['username'];
  $password = $_POST['password'];
-$con = mysql_connect("localhost","root","uditverma");
+$con = mysql_connect("localhost","group9","grp9football");
 if (!$con)
   {
   die('Could not connect: ' . mysql_error());
   }
 
-mysql_select_db("carpool", $con);
+mysql_select_db("group9", $con);
 
 $result = mysql_query("SELECT pass, active, uid FROM users where eid='" . $username . "@iiitd.ac.in'");
+
 
 $row = mysql_fetch_array($result);
 if($row['pass']==$password && $row['active']==1 )
 {
 	ob_start();
-	header("Location: http://localhost/SE/efe/dashboard.php");
+	header("Location: http://192.168.1.20:8089/dashboard.php");
 	$uid = $row['uid'];
 	session_start();
 if(!session_id() == '')
@@ -41,12 +42,12 @@ exit;
 }
 else if($row['pass']==$password && $row['active']==0 )
 {
-	header("Location: http://localhost/SE/efe/retryLogin.php?r=a");
+	header("Location: http://192.168.1.20:8089/retryLogin.php?r=a");
 	exit;
 }
 else
 {
-	header("Location: http://localhost/SE/efe/retryLogin.php?r=i");
+	header("Location: http://192.168.1.20:8089/retryLogin.php?r=i");
 	exit;
 }
 

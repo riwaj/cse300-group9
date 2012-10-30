@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+
+<style> 
+form {border-style:dotted;
+border-width:1px; }
+
+</style>
+
 <style> 
 form {border-style:dotted;
 border-width:1px; }
@@ -82,6 +89,7 @@ else
 	
 <br>
 
+
 	<form>
 	<h4> <div align="left"> Postal Address</div></h4>
 	<br>
@@ -90,7 +98,9 @@ else
 Okhla Industrial Estate Phase III"?><br>
 <?php echo "(Near Govind Puri Metro Station)"?><br>
 <?php echo "New Delhi, India - 110020 " ?> <br><br>
+
 </form>
+
 
 <form>
 <h4> <div align="left"> Email Address <br><br></div></h4>

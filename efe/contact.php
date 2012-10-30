@@ -8,13 +8,6 @@ border-width:1px; }
 
 </style>
 
-<style> 
-form {border-style:dotted;
-border-width:1px; }
-
-
-</style>
-
     <meta charset="utf-8">
     <title>IIITD Car Pool</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

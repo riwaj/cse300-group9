@@ -7,7 +7,7 @@
 <?php
 $username=$_POST['username'];
  $password = $_POST['password'];
-$con = mysql_connect("localhost","root","shubhansh");
+$con = mysql_connect("localhost","root","uditverma");
 if (!$con)
   {
   die('Could not connect: ' . mysql_error());
@@ -21,7 +21,7 @@ $row = mysql_fetch_array($result);
 if($row['pass']==$password && $row['active']==1 )
 {
 	ob_start();
-	header("Location: http://localhost:809/SE/efe/dashboard.php");
+	header("Location: http://localhost/SE/efe/dashboard.php");
 	$uid = $row['uid'];
 	session_start();
 if(!session_id() == '')
@@ -41,12 +41,12 @@ exit;
 }
 else if($row['pass']==$password && $row['active']==0 )
 {
-	header("Location: http://localhost:809/SE/efe/retryLogin.php?r=a");
+	header("Location: http://localhost/SE/efe/retryLogin.php?r=a");
 	exit;
 }
 else
 {
-	header("Location: http://localhost:809/SE/efe/retryLogin.php?r=i");
+	header("Location: http://localhost/SE/efe/retryLogin.php?r=i");
 	exit;
 }
 

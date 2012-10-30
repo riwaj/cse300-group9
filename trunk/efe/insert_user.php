@@ -1,5 +1,5 @@
 <?php
-$con = mysql_connect("localhost","root","shubhansh");
+$con = mysql_connect("localhost","root","uditverma");
 if (!$con)
   {
   die('Could not connect: ' . mysql_error());
@@ -17,7 +17,7 @@ if (!$con)
  if($type == "Passenger"){
 	 
 	 	$hash = md5( rand(0,1000) );
-$sql_passenger="INSERT INTO users VALUES( NULL,'$_POST[name]','$em','$_POST[pass]','". mysql_escape_string($hash) ."','$_POST[phn]','Passenger',1)";
+$sql_passenger="INSERT INTO users VALUES( NULL,'$_POST[name]','$em','$_POST[pass]','". mysql_escape_string($hash) ."','$_POST[phn]','Passenger',0)";
  
  if (!mysql_query($sql_passenger,$con))
   {
@@ -30,7 +30,7 @@ $sql_passenger="INSERT INTO users VALUES( NULL,'$_POST[name]','$em','$_POST[pass
  if($type == "Car Owner")
  {
 	 	 	$hash = md5( rand(0,1000) );
-$sql_owner="INSERT INTO users VALUES( NULL,'$_POST[name]','$em','$_POST[pass]','". mysql_escape_string($hash) ."','$_POST[phn]','Car Owner',1)";
+$sql_owner="INSERT INTO users VALUES( NULL,'$_POST[name]','$em','$_POST[pass]','". mysql_escape_string($hash) ."','$_POST[phn]','Car Owner',0)";
   if (!mysql_query($sql_owner,$con))
   {
 	  die('Error: ' . mysql_error());
@@ -80,7 +80,7 @@ $sql_follows = "INSERT INTO follows VALUES(NULL,'$oid[uid]','$rid[rid]')";
  
 
 mysql_close($con);
-header("Location: http://localhost:809/SE/efe/index.php");
+header("Location: http://localhost/SE/efe/index.php");
 exit;
 ?>
 

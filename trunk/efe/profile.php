@@ -60,13 +60,13 @@ div span::after {
 session_start();
 if(!isset($_SESSION['userid']))
 {
-	 header("Location: http://localhost:809/SE/efe/unauthrised.php");
+	 header("Location: http://localhost/SE/efe/unauthrised.php");
 }
 ?>
 <?php
 
 $uid=$_SESSION['userid'];
-$con = mysql_connect("localhost","root","shubhansh");
+$con = mysql_connect("localhost","root","uditverma");
 if (!$con)
   {
   die('Could not connect: ' . mysql_error());

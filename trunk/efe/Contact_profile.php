@@ -78,12 +78,12 @@ div span::after {
 	  session_start();
 if(!isset($_SESSION['userid']))
 {
-	 header("Location: http://localhost:809/SE/efe/unauthrised.php");
+	 header("Location: http://localhost/SE/efe/unauthrised.php");
 }
 else{
 	$uid=$_SESSION['userid'];
 }
-$con = mysql_connect("localhost","root","shubhansh");
+$con = mysql_connect("localhost","root","uditverma");
 if (!$con)
   {
   die('Could not connect: ' . mysql_error());
@@ -169,10 +169,10 @@ mysql_close($con);
 	  }
 	  else
 	  {
-		  echo "<h4>  Model Name :".$cname."<br>
-       Capacity :".$cap."<br>
-         AC :".$AC."<br>
-          Number Plate :".$np."<br></h4>";
+		  echo "<h4>  Model Name : ".$cname."<br>
+       Capacity : ".$cap."<br>
+         AC : ".$AC."<br>
+          Number Plate : ".$np."<br></h4>";
 	  }
 	  ?>
       </div>
@@ -181,7 +181,7 @@ mysql_close($con);
 	<?php
 	if($type=="Car Owner")
 {
-$con = mysql_connect("localhost","root","shubhansh");
+$con = mysql_connect("localhost","root","uditverma");
 if (!$con)
   {
   die('Could not connect: ' . mysql_error());

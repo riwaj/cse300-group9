@@ -188,6 +188,66 @@ mysql_close($con);
       </div>
     </div>
   </div>
+  <?php
+	if($type=="Car Owner")
+{
+$con = mysql_connect("localhost","root","uditverma");
+if (!$con)
+  {
+  die('Could not connect: ' . mysql_error());
+  }
+
+mysql_select_db("carpool", $con);
+
+$result = mysql_query("select route.rid, route.startpoint, route.milestone1, route.milestone2, route.milestone3, route.milestone4, route.milestone5, route.rcost
+from route, follows where route.rid=follows.rid and follows.oid='" . $uid. "'");
+
+$cnt1=6;
+$cntr=1;
+
+echo	" <div class='accordion-group'>
+    <div class='accordion-heading'>
+      <a class='accordion-toggle' data-toggle='collapse' data-parent='#accordion2' href='#collapseThree'>
+        <span>Route Info</span>
+      </a>
+    </div>
+    <div id='collapseThree' class='accordion-body collapse'>
+      <div class='accordion-inner'>
+	  <div class='accordion' id='accordion3'>";
+	  while($row = mysql_fetch_array($result))
+ {	  
+ echo 
+  "<div class='accordion-group'>
+    <div class='accordion-heading'>
+      <a class='accordion-toggle' data-toggle='collapse' data-parent='#accordion3' href='#collapse".$cnt1."'>
+        <span>Route ".$cntr." (From ".$row['startpoint'].")</span>
+      </a>
+    </div>
+    <div id='collapse".$cnt1."' class='accordion-body collapse'>
+      <div class='accordion-inner'>
+        
+		<h4>Start Point : ".$row['startpoint']."</br>
+		Milestone 1 : ".$row['milestone1']."</br>
+		Milestone 2 : ".$row['milestone2']."</br>
+		Milestone 3 : ".$row['milestone3']."</br>
+		Milestone 4 : ".$row['milestone4']."</br>
+		Milestone 5 : ".$row['milestone5']."</br>
+		Route Cost : Rs.".$row['rcost']."</h4><br>";
+	
+
+     echo" </div>
+    </div>
+  </div>";
+$cnt1=$cnt1+1;
+$cntr=$cntr+1;
+}
+ echo "</div>
+    </div>
+  </div>";
+    mysql_close($con);
+  }
+
+  ?>
 </div>
       </div>
       

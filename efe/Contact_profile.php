@@ -239,7 +239,11 @@ if($numfo==0){
 		}
 		else
 		{
-		echo "<button class='btn btn-success' value='follow'>Unfollow This Route</button> ";
+		echo"<form method='post' action='join_cpool.php'>
+		<input type='hidden' name='calbak' value='".$pid."' required/>
+		<input type='hidden' name='route' required value='".$row['rid']."'/>
+		<button type='submit' class='btn btn-success' value='follow'>Unfollow This Route</button>
+         </form>		";
 		}
      echo" </div>
     </div>

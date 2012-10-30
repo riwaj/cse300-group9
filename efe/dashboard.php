@@ -3,6 +3,24 @@
   <head>
     <meta charset="utf-8">
     <title>IIITD Car Pool</title> 
+	<link rel="stylesheet" href="style.css" type="text/css" media="all" title="" />
+		
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+		<script type="text/javascript" src="assets/js/jquery.quicksearch.js"></script>
+		<script type="text/javascript">
+			$(function () {
+				/*
+				Example 1
+				*/
+				$('input#id_search').quicksearch('table tbody tr');
+				
+				$('input#add_to_list').click(function () {
+					$('ul#list_example').append('<li>Added on click</li>');
+					qs.cache();
+				});
+				
+			});
+		</script>
     <script type="text/javascript">
 
 function getdata(_row){
@@ -52,9 +70,13 @@ function getdata(_row){
 			<li><a href="profile.php">Profile</a></li>
 <li><a href="index.php">Logout</a></li>                     
   <li><a href="contact.php">Contact Us</a></li>
+<<<<<<< .mine
+ 
+=======
   	  <li><a href="faq.php">FAQ</a></li>
   
  
+>>>>>>> .r77
 </li> </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -129,14 +151,15 @@ else
 <div class="container">
       <h1><div align="left"> Find a Match 
       
-  
-  <input type="text" class="input-high search-query">
-  <button type="submit" class="btn">Search</button>
- </div></h1>
-  
+   <<form>
+			<fieldset>
+				<input type="text" name="search" value="" id="id_search" placeholder="Search" autofocus />
+			</fieldset>
+		</form>
+
  <div class="row">
           <div id="myTabContent" class="tab-content">
-      <table class="table table-striped">
+      <table class="table table-striped" id="table_example">
         <thead>
           <tr>        
           	<th style="display:none">uid</th> 
@@ -259,7 +282,7 @@ mysql_close($con);
 <script src="assets/js/bootstrap-collapse.js"></script> 
 <script src="assets/js/bootstrap-carousel.js"></script> 
 <script src="assets/js/bootstrap-typeahead.js"></script>
-   
+<script src="assets/js/jquery.quicksearch.js"></script>
 
   </body>
 </html>

@@ -84,9 +84,8 @@ if(!session_id() == '')
                 <label for="password" class="youpasswd" > Your password </label>
                 <input id="password" name="password" required type="password" placeholder="eg. X8df!90EO" />
               </p>
-              <p class="keeplogin">
-                <input type="checkbox" name="loginkeeping" id="loginkeeping" value="loginkeeping" />
-                <label for="loginkeeping">Keep me logged in</label>
+              <p>
+                    <a href="hello.html"><label>Forgot My Passowrd</label></a>
               </p>
                  <p class="login button">
                 <input type="submit" value="Log in !" class="btn-primary"/>

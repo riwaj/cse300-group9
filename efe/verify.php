@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>IIITD Car Pool</title>
+    <title>IIIT-D Car Pool</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -72,6 +72,7 @@ else
    <div class="alert alert-error">
   Verification mail sent to <?php echo $_GET['email']?><br>
   Please verify your account to login.<br>
+  (Please check your spam folder too for the verification email)
 </div>
 <a href="index.php">Continue to login page<i class=""icon-arrow-right""></i></a>
 

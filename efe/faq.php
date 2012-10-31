@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>IIITD Car Pool</title>
+    <title>IIIT-D Car Pool</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -71,24 +71,53 @@ else
     <div class="container">
 
 <div class="span7 offset2">
-    <h1> <div align="left">Frequently asked questions about IIITD Carpool </div></h1>
+    <h1> <div align="left">Frequently asked questions about IIIT-D Car Pool </div></h1>
     <br>
 
 	
-	<h4>1. Why can I not login from any account than IIITD account?</h4>
-	<p> IIITD car pool is a car pool software for students studying in IIITD for use bound to IIITD.</p>
+	
+	<h4>1. Why can I not login from any account other than IIIT-D account?</h4>
+	<p> IIIT-D car pool is a car pool software only for students studying in IIIT-D for use bound to IIIT-D.</p>
 <br>
-<h4>2. Is my password insecured?</h4>
-<p>We do store your password in a hash function, hence it is hidden from the administrators as well.</p>
+
+<h4>2. I can make only one account, what shall I do if I no longer want to use the software as a car-owner but use it as a passenger?</h4>
+	<p> You need to delete your account and Sign up again, this time as a passenger.</p>
 <br>
+
+
 <h4>3. Can I be a car owner as well as a passenger?</h4>
-<p>Yes you can be both.</p>
+<p>Yes, you can be both.</p>
 <br>
 
 <h4>4. Why do I need to write the milestones while creating my profile?</h4>
 <p>Specifying your milestones would help the passengers connect with you more freely.</p>
-</div>
+<br>
 
+<h4>5. Can I check which other passengers are following the same route(s) that I am following?</h4>
+<p>This feature would be added soon</p>
+<br>
+
+<h4>6. I don't know how to go back to the List of Car Owners and Passengers. What do I do?</h4>
+<p>Go to the Home Page by selecting Home from the panel on the top right of the webpage.</p>
+<br>
+
+<h4>7. Why can't I reply back to the broadcaster confirming my willingness to go with him at the time specified by him?</h4>
+<p>This situation occurs when the number of people who have replied to broadcaster is already equal to the capacity of the car being used by him and hence no more people can travel with the broadcaster.</p>
+<br>
+
+<h4>8. I am a Car Owner and I have an emergency. I cannot travel today. Can I cancel the broadcast message sent to the passengers?</h4>
+<p>Answer be filled in later</p>
+<br>
+
+<h4>9. My route followers are not paying me. What do I do?</h4>
+<p>We are here to facilitate the coming together of people for the car pool but payments are expected to be handled by the car pool group members.</p>
+<br>
+
+
+<h4>10. How do I stop receiving broadcasts from a Car Owner?</h4>
+<p>Go to your Profile and from the Route Followed tab, you can select Unfollow Route button against the Car Owner you wish to stop receiving broadcasts from.</p>
+<br>
+</div>
       
     </div> <!-- /container -->
 

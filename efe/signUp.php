@@ -3,7 +3,10 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>IIITD Car Pool</title>
+<title>IIIT-D Car Pool</title>
+
+<script src="assets/js/jquery.js"></script>
+<script>
 
 <script src="assets/js/jquery.js"></script>
 <script src="assets/js/jquery.pwdstr-1.0.source.js"></script>
@@ -97,7 +100,8 @@ function changeVisibility(id2,id1) {
             <form autocomplete="off" action="register.php" method="post" name="sign">
               <p>
                 <label for="username" class="uname" > Your Username </label>
-                <input id="username" name="username" pattern="^[A-Za-z]{1,20}[0-9]{0,5}$" required type="text" placeholder="xyz10067"/>
+                <input id="username" name="username" required type="text" placeholder="xyz10067"/>
+				<div align="right">@iiitd.ac.in</div>
               </p>
               <p>
                 <label for="password" class="youpasswd"> Your password </label>

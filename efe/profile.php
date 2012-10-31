@@ -25,17 +25,6 @@ div span::after {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-	<script type="text/javascript" src="assets/js/jquery.js">
-	    
-    $(document).ready(function() {
-           $(function () {
-                $("#blob")
-            .popover({
-                offset: 10
-                    })
-
-})
-});
 	</script>
     <!-- Le styles -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
@@ -127,7 +116,7 @@ mysql_close($con);
 <div class="span4 offset4">
       <div class="row">
       <div class="btn-group pull-right">
-  <a href="register.php"><button class="btn btn-primary">Edit Profile</button></a>
+  <a href="editProfile.php"><button class="btn btn-primary">Edit Profile</button></a>
   <?php if($type=="Car Owner")
   {
    echo "<a href='regRoute.php'><button class='btn btn-warning'>Add a Route</button></a>";
@@ -158,8 +147,9 @@ mysql_close($con);
       <?php
 	  if($type=="Passenger")
 	  {
-		  echo "Route Followed
+		  echo "<span>Route Followed by me</span>
 		  </a>
+		  
 		  </div>";
 	  }
 	  else
@@ -173,9 +163,43 @@ mysql_close($con);
     <div id="collapseTwo" class="accordion-body collapse">
       <div class="accordion-inner">
    <?php
-	  if($type=="Passenger")
+	 if($type=="Passenger")
 	  {
-		  echo "Passenger";
+			$con = mysql_connect("localhost","group9","grp9football");
+			if (!$con)
+			{
+				die('Could not connect: ' . mysql_error());
+			}
+
+
+			mysql_select_db("group9", $con);
+			$result = mysql_query("select route.rid,route.startpoint,route.milestone1, route.milestone2, route.milestone3, route.milestone4, 
+			route.milestone5, route.rcost from route, cpool where cpool.passenger=".$uid." and route.rid=cpool.route ");
+			echo "<div class='accordion' id='accordion3'>";
+			$r=1;
+			while($row = mysql_fetch_array($result))
+			{echo "
+				<div class='accordion-group'>
+				<div class='accordion-heading'>
+				<a class='accordion-toggle' data-toggle='collapse' data-parent='#accordion3' href='#collapse".$r."'>
+				Route ".$r." (from ".$row['startpoint']." )
+				</a>
+				</div>
+				<div id='collapse".$r."' class='accordion-body collapse'>
+      <div class='accordion-inner'>
+       <h4>Start Point : ".$row['startpoint']."</br>
+		Milestone 1 : ".$row['milestone1']."</br>
+		Milestone 2 : ".$row['milestone2']."</br>
+		Milestone 3 : ".$row['milestone3']."</br>
+		Milestone 4 : ".$row['milestone4']."</br>
+		Milestone 5 : ".$row['milestone5']."</br>
+		Route Cost : Rs.".$row['rcost']."</h4><br>
+      </div>
+    </div>
+  </div>
+			";
+			$r=$r+1;}
+			echo "</div>";
 	  }
 	  else
 	  {

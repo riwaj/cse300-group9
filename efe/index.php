@@ -77,15 +77,15 @@ if(!session_id() == '')
             <form autocomplete="off" action="authenticate.php" method="post">
               <p>
                 <label for="username" class="uname"  > Your Username </label>
-                
-                <input id="username" autocomplete="on" pattern="^[A-Za-z]{1,20}[0-9]{0,5}$" name="username" required type="text" placeholder="xyz10067"/>
-              </p>
+                <input class="input-medium"	id="username" autocomplete="on" pattern="^[A-Za-z]{1,20}[0-9]{0,5}$" name="username" required type="text" placeholder="xyz10067"/>
+                <div align="right">@iiitd.ac.in</div>
+			 </p>
               <p>
                 <label for="password" class="youpasswd" > Your password </label>
                 <input id="password" name="password" required type="password" placeholder="eg. X8df!90EO" />
               </p>
               <p>
-                    <a href="hello.html"><label>Forgot My Passowrd</label></a>
+                    <a href="index.php"><label>Forgot My Password</label></a>
               </p>
                  <p class="login button">
                 <input type="submit" value="Log in !" class="btn-primary"/>

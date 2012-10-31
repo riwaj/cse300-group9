@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>IIITD Car Pool</title>
+<title>IIIT-D Car Pool</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
 <meta name="author" content="Web Mutiny">
@@ -79,7 +79,7 @@ if(isset($_GET['r']))
 if($reason=="i")
 {echo "Invalid User Name / Password. Please Try Again.";}
 else if($reason=="a")
-{echo "Account Not Activated.<br> Please Activate Acoount by clicking on the link in the e-mail sent by us.";}
+{echo "Account Not Activated.<br> Please Activate Account by clicking on the link in the e-mail sent by us.";}
 ?>
 </div>
             <form autocomplete="off" action="authenticate.php" method="post">
@@ -87,6 +87,7 @@ else if($reason=="a")
                 <label for="username" class="uname"  > Your Username </label>
                 
                 <input id="username" autocomplete="on" pattern="^[A-Za-z]{1,20}[0-9]{0,5}$" name="username" required type="text" placeholder="xyz10067"/>
+		<div align="right">@iiitd.ac.in</div>
               </p>
               <p>
                 <label for="password" class="youpasswd" > Your password </label>

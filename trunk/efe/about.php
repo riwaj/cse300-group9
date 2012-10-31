@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>IIITD Car Pool</title>
+    <title>IIIT-D Car Pool</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -71,9 +71,9 @@ else
 <div class="span7 offset2">
     <h1> <div align="left"> About Us </div></h1>
     <p>
-Most of the IIITians are Day Scholars and a major percentage live far away thereby are forced to use public transport(fuel prices are soaring for a person to use car daily for long distances). IIIT-D Carpool connects students living in different parts of the city and encourages them to car pool.</p>
+Most of the IIITians are Day Scholars and a major percentage live far away from the campus and are thus forced to use public transport(fuel prices are soaring and hence people don't like to use their car daily for long distances). IIIT-D Carpool connects students living in different parts of the city and encourages them to car pool.</p>
 <br>
-<p>Our software allows only IIITD students to signup via their IIITD accounts. The user is given the option to be a passenger or a car owner. After filling in all the necessary details, the passenger is taken to the dashboard where he can follow the route of the car owner that suits him based on route, capacity, cost of car. Once all the formalities are done user is taken to the world of broadcasting.</p>
+<p>Our software allows only IIIT-D students to signup via their IIIT-D accounts. The user is given the option to be a passenger or a car owner. After filling in all the necessary details, people who have signed up as a passenger are taken to the dashboard where they can follow the route of the car owner that suits them based on route, capacity, cost of car. Once all the formalities are done user is taken to the world of broadcasting.</p>
 <br>
 <p>Our software allows the car owner to broadcast his current location along with the time he is leaving to the passengers group that is following him. This broadcasting is done via SMS.</p>
 </div>

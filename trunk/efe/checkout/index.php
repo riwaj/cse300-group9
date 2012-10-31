@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>IIIT-D Car Pool</title>
+<title>IIITD Car Pool</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
 <meta name="author" content="Web Mutiny">
@@ -47,9 +47,11 @@ if(!session_id() == '')
           <a class="brand" href="#">I-Pool</a>
           <div class="nav-collapse">
             <ul class="nav pull-right">
-              <li class="active"><a href="#">Home</a></li>
+              <li class="active"><a href="#"><i class="icon-home icon-white"></i>Home</a></li>
               <li><a href="about.php">About</a></li>
               <li><a href="contact.php">Contact Us</a></li>
+			  	  <li><a href="faq.php">FAQ</a></li>
+
              <li>
 
 </li>
@@ -72,22 +74,18 @@ if(!session_id() == '')
           <div id="login" class="animate form">
           <div id="buttons">
 </div>
-<div class="alert alert-error">
-Unauthorized Access. Please Login to Continue.
-</div>
             <form autocomplete="off" action="authenticate.php" method="post">
               <p>
                 <label for="username" class="uname"  > Your Username </label>
-                
-                <input id="username" autocomplete="on" pattern="^[A-Za-z]{1,20}[0-9]{0,5}" name="username" required type="text" placeholder="xyz10067"/>
-              </p>
+                <input class="input-medium"	id="username" autocomplete="on" pattern="^[A-Za-z]{1,20}[0-9]{0,5}$" name="username" required type="text" placeholder="xyz10067"/>
+                <div align="right">@iiitd.ac.in</div>
+			 </p>
               <p>
                 <label for="password" class="youpasswd" > Your password </label>
                 <input id="password" name="password" required type="password" placeholder="eg. X8df!90EO" />
               </p>
-              <p class="keeplogin">
-                <input type="checkbox" name="loginkeeping" id="loginkeeping" value="loginkeeping" />
-                <label for="loginkeeping">Keep me logged in</label>
+              <p>
+                    <a href="hello.html"><label>Forgot My Passowrd</label></a>
               </p>
                  <p class="login button">
                 <input type="submit" value="Log in !" class="btn-primary"/>

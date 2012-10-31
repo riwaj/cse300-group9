@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
+     <meta charset="utf-8">
     <title>IIITD Car Pool</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
@@ -206,6 +206,7 @@ echo	" <div class='accordion-group'>
 	  <div class='accordion' id='accordion3'>";
 	  while($row = mysql_fetch_array($result))
  {	  
+ $rt=$row['rid'];
  echo 
   "<div class='accordion-group'>
     <div class='accordion-heading'>
@@ -222,16 +223,21 @@ echo	" <div class='accordion-group'>
 		Milestone 3 : ".$row['milestone3']."</br>
 		Milestone 4 : ".$row['milestone4']."</br>
 		Milestone 5 : ".$row['milestone5']."</br>
-		Route Cost : Rs.".$row['rcost']."</h4><br>";
+		Route Cost : Rs.".$row['rcost']."</h4>";
+		
 		$data = mysql_query("select count(*) as num from route, cpool
 where cpool.passenger='".$uid."' and cpool.route='".$row['rid']."'") or die(mysql_error());
-
 $rown = mysql_fetch_assoc($data);
 
+$result2 = mysql_query("select cpool.pickuploc from cpool,follows,users,route where cpool.route='".$rt."' and cpool.passenger='".$uid."' and follows.oid='" . $pid. "'
+and route.rid=cpool.route");
+$row2 = mysql_fetch_array($result2);
 $numfo = $rown['num'];
 if($numfo==0){
 		echo"<form method='post' action='join_cpool.php'>
-		<input type='text' name='ploc' required placeholder='Pick Up Location for above route'/>
+		
+		
+		<input id = 'autocomplete' type='text' name='ploc' required placeholder='Pick Up Location for above route'/>
 		<input type='hidden' name='calbak' value='".$pid."' required/>
 		<input type='hidden' name='route' required value='".$row['rid']."'/>
 		<button type='submit' class='btn btn-success' value='follow'>Follow This Route</button>
@@ -242,6 +248,7 @@ if($numfo==0){
 		echo"<form method='post' action='join_cpool.php'>
 		<input type='hidden' name='calbak' value='".$pid."' required/>
 		<input type='hidden' name='route' required value='".$row['rid']."'/>
+		<h4>My Pickup Location: ".$row2['pickuploc']."</h4></br></br>
 		<button type='submit' class='btn btn-success' value='follow'>Unfollow This Route</button>
          </form>		";
 		}
